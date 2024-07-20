@@ -6,7 +6,7 @@
 - [ ] 의존성, 환경 변수, 빌드 관련 코드 업데이트
 
 ### 반영 브랜치
-ex) feat/login -> dev
+ex) feat/login -> main
 
 ### 진행률
 ex) 75%
