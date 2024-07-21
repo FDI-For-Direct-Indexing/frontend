@@ -1,0 +1,9 @@
+.chatSummaryBallon {
+    height: 15vh;
+    padding: 16px 24px;
+    border-radius: 0px 24px 24px 24px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}

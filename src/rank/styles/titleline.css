@@ -1,0 +1,33 @@
+.titleline-container {
+    display: flex;
+    flex-direction: column;
+    height: 38px;
+  }
+  
+  .titleline {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  
+  .titleline-item {
+    margin-right: 10px; /* 기본 간격 30px */
+  }
+  
+  .titleline-item.group {
+    margin-right: 25px; /* 순위와 군집 간격 50px */
+  }
+  
+  .titleline-item.stock-code {
+    margin-right: 40px; /* 군집과 종목코드 간격 100px */
+  }
+  
+  .titleline-item.company-name {
+    margin-right: 100px; /* 종목코드와 기업명 간격 200px */
+  }
+  .separator-line {
+    width: 100%;
+    border-top: 1px solid #ccc; /* 선의 색상과 두께 조정 */
+  }
+  

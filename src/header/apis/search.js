@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../../main/apis/core";
+import { API_URL } from "../../common/api";
 
 export const getSearchResult = (name) => {
   return axios
