@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import ChatSummary from './components/chatSummary';
 import CartSummary from './components/cartSummary';
 import Clustering from './components/clustering';
-import Parallel from './components/parallel';
+import Parallel from './components/parallelPlot/parallel';
 import RankList from './components/weightgraph/rankList';
 import TitleLine from './components/weightgraph/titleLine';
 import CustomGraph from './components/weightgraph/customGraph';
@@ -21,7 +21,7 @@ export default function Rank() {
       <Container style={{padding:'25px 100px'}} fluid >
         <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
           <PlotProvider>
-            <Row>
+            <Row style={{ marginBottom:'25px'}}>
               <Col xs={8}>
                   <ChatSummary />
               </Col>
@@ -30,18 +30,17 @@ export default function Rank() {
               </Col>
             </Row>
             <Row>
-              {/* <Col>
-                <div>
-                  
-                  <CustomGraph title="순위" />
+              <Col xs={6}>
+                <div className='basicBox'>
+                  <CustomGraph title="맞춤형 순위" />
                   <TitleLine />
                   <RankList />
-                  <div>
-                    <Clustering />
-                    <Parallel />
-                  </div>
                 </div>
-              </Col> */}
+              </Col>
+              <Col xs={6}>
+                <Clustering />
+                <Parallel />
+              </Col>
             </Row>
           </PlotProvider>
         </WeightProvider>
