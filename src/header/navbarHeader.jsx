@@ -16,7 +16,7 @@ import {
   useKeyword,
   useIncludedResults,
   useShowIncludedResults,
-} from "./hooks/searchbar";
+} from "./hooks/searchBar";
 
 function NavbarHeader() {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
