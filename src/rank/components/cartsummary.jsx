@@ -8,7 +8,7 @@ export default function CartSummary() {
   ];
 
   return (
-    <div className='basicBox'>
+    <div className='basicBox' style={{ height: '15vh' }}>
       <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
         <p style={{fontSize:'18px', fontFamily:'SpoqaHanSansNeo-Bold', textWrap:'inherit', marginBottom:'5px'}}>다이렉트 인덱싱</p>
         <p style={{color:DESCRIPTION, fontSize:'14px', paddingLeft:'10px', marginBottom:'2px'}}>최근에 담은 종목</p>
