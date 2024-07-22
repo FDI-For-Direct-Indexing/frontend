@@ -3,20 +3,16 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useNavigate } from "react-router-dom";
-import { DESCRIPTION } from "../constants/color";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/navbar.css";
+import { useNavigate } from "react-router-dom";
+import { DESCRIPTION } from "../constants/color";
+import { useKeyword, useIncludedResults, useShowIncludedResults } from "./hooks/searchbar";
 import LOGO from "../assets/image/header-logo.png";
 import CART from "../assets/image/cart.svg";
 import SEARCH from "../assets/image/search.svg";
 import USER from "../assets/image/header-user.svg";
 import CHATSYMBOL from "../assets/image/chat-symbol.svg";
-import {
-  useKeyword,
-  useIncludedResults,
-  useShowIncludedResults,
-} from "./hooks/searchbar";
 
 function NavbarHeader() {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
