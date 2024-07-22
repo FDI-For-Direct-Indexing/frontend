@@ -1,0 +1,48 @@
+[
+    {
+      "id": "00126380",
+      "name": "삼성전자",
+      "profit": 55.4,
+      "growth": 40.2,
+      "safety": 32.2,
+      "efficiency": 34.5,
+      "oogong_rate": 14.5
+    },
+    {
+      "id": "00164779",
+      "name": "SK하이닉스",
+      "profit": 31.2,
+      "growth": 14.6,
+      "safety": 23.1,
+      "efficiency": 49.4,
+      "oogong_rate": 14.5
+    },
+    {
+      "id": "01515323",
+      "name": "LG에너지솔루션",
+      "profit": 52.6,
+      "growth": 88.5,
+      "safety": 26.7,
+      "efficiency": 42.5,
+      "oogong_rate": 14.5
+    },
+    {
+      "id": "00164742",
+      "name": "현대차",
+      "profit": 55.9,
+      "growth": 57.8,
+      "safety": 38.9,
+      "efficiency": 18,
+      "oogong_rate": 14.5
+    },
+    {
+      "id": "00877059",
+      "name": "삼성바이오로직스",
+      "profit": 67.6,
+      "growth": 59.4,
+      "safety": 16.5,
+      "efficiency": 100,
+      "oogong_rate": 14.5
+    }
+  ]
+  

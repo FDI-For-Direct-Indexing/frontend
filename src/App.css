@@ -1,3 +1,49 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  font-weight: normal;
+  src: url("./assets/font/SpoqaHanSansNeo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeo-Bold";
+  font-weight: normal;
+  src: url("./assets/font/SpoqaHanSansNeo-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeo-Light";
+  font-weight: normal;
+  src: url("./assets/font/SpoqaHanSansNeo-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeo-Medium";
+  font-weight: normal;
+  src: url("./assets/font/SpoqaHanSansNeo-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeo-Thin";
+  font-weight: normal;
+  src: url("./assets/font/SpoqaHanSansNeo-Thin.ttf") format("truetype");
+}
+
+body {
+  font-family: SpoqaHanSansNeo-Regular;
+}
+
+div.pageBack {
+  background-color: #F5F6FA;
+  margin: 0;
+  padding: 0;
+}
+
+div.basicBox {
+  padding: 16px 24px;
+  border-radius: 6px;
+  background-color: white;
+}
+
 .rounded-rectangle {
   border-radius: 6;
 }

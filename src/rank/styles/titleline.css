@@ -1,0 +1,39 @@
+.titleline-container {
+  display: flex;
+  flex-direction: column;
+  height: 38px;
+}
+
+.titleline {
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: space-between;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.titleline-item {
+  flex: 1; /* 기본 간격 10px */
+  text-align: center;
+}
+
+.titleline-item.company-name {
+  flex: 2;
+  /* margin: 0 10px; */
+}
+
+.titleline-item.stock-code {
+  flex: 1.5;
+  /* margin: 0 20px; */
+}
+
+.titleline-item.graph {
+  flex: 5;
+  /* margin: 0 50px; */
+}
+
+.separator-line {
+  width: 100%;
+  border-top: 2px solid; /* 선의 색상과 두께 조정 */
+  margin-top: 10px;
+}
