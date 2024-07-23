@@ -6,7 +6,9 @@ import { WeightContext } from "../../../contexts/weightProvider";
 import { useNavigate } from "react-router-dom";
 import { CLUSTER } from "../../../constants/color";
 import { API_URL } from '../../../common/api';
-import weightData from './weight.json';
+import sectorchip from "../../../common/ui/sectorchip";
+import SectionChip from "../../../common/ui/sectionChip";
+import { createRoot } from "react-dom/client";
 
 const RankList = () => {
   const { sliderValues, setStockList, colorList } = useContext(WeightContext);
@@ -16,22 +18,6 @@ const RankList = () => {
   const [sortedData, setSortedData] = useState([]);
 
   useEffect(() => {
-    // const sortedData = rankSort(sliderValues, weightData);
-    // setData(sortedData);
-    // setSortedData(sortedData);
-    // const svg = d3
-    //   .select(svgRef.current)
-    //   .attr("width", 750)
-    //   .attr("height", weightData.length * 50 + 50); // 데이터 길이에 따라 높이 조정
-    // // 군집 색상 바로;
-    // if (data != undefined && data.length > 0) {
-    //   matchColor().then((d) => {
-    //       console.log(d);
-    //       setData(d);
-    //       update(data, svg, ...sliderValues, "group1");
-    //   });
-    // }
-
 
     const fetchCompanies = async () => {
       try {
@@ -125,6 +111,7 @@ const RankList = () => {
       sortedData.map((item) => ({
         id: item.id,
         name: item.name,
+        sector: item.sector,
         profitability: item.profit * sliderValues[0],
         stability: item.safety * sliderValues[1],
         potential: item.growth * sliderValues[2],
@@ -143,16 +130,7 @@ const RankList = () => {
     update(sortedData, svg, ...sliderValues, "group1");
   };
 
-  const update = async (
-    data,
-    svg,
-    weight_d,
-    weight_s,
-    weight_n,
-    weight_m,
-    weight_q,
-    groupClass
-  ) => {
+  const update = async (data, svg, weight_d, weight_s, weight_n, weight_m, weight_q, groupClass ) => {
     if (data === undefined) {
       return;
     }
@@ -163,7 +141,7 @@ const RankList = () => {
     }
 
     const height = 50;
-    const widthScale = 30;
+    const widthScale = 30; // 지수 그래프 너비
 
     const rows = group.selectAll("g.row").data(data, (d) => d.name);
 
@@ -207,7 +185,7 @@ const RankList = () => {
       .append("text")
       .attr("class", "index-text")
       .attr("y", 30)
-      .attr("font-size", 13)
+      .attr("font-size", 16)
       .attr("x", 1)
       .attr("font-weight", "bold")
       .text((d, i) => i + 1);
@@ -220,21 +198,34 @@ const RankList = () => {
       .attr("r", (height - 20) / 2) // 반지름, rect의 height를 사용하여 원의 크기 설정
       .attr("fill", (d) => d.color);
 
-    rowsEnter
+    rowsEnter // 기업명
       .append("text")
       .attr("y", 30)
-      .attr("font-size", 13)
+      .attr("font-size", 16)
+      .attr("x", 100)
+      .attr("font-weight", "bold")
+      .text((d) => (d.id.length > 10 ? `${d.id.slice(0, 10)}...` : d.id));
+
+    rowsEnter // 종목코드?
+      .append("text")
+      .attr("y", 30)
+      .attr("font-size", 16)
       .attr("x", 200)
       .attr("font-weight", "bold")
       .text((d) => (d.name.length > 10 ? `${d.name.slice(0, 10)}...` : d.name));
 
+    // 섹터
     rowsEnter
-      .append("text")
-      .attr("y", 30)
-      .attr("font-size", 13)
-      .attr("x", 100)
-      .attr("font-weight", "bold")
-      .text((d) => (d.id.length > 10 ? `${d.id.slice(0, 10)}...` : d.id));
+      .append("colorchip")
+      .attr("width", 200)
+      .attr("height", height)
+      .attr("x", 300)
+      .attr("y", 0)
+      .each(function(d) {
+        const colorObject = this;
+        const root = createRoot(colorObject);
+        root.render(<SectionChip content={d.name} />);
+      });
 
     rowsEnter
       .append("rect")

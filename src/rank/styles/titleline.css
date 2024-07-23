@@ -32,6 +32,10 @@
   /* margin: 0 50px; */
 }
 
+.titleline-item.cart {
+  margin-right: 15px;
+}
+
 .separator-line {
   width: 100%;
   border-top: 2px solid; /* 선의 색상과 두께 조정 */
