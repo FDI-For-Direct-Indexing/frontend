@@ -1,5 +1,5 @@
+import { Chip } from '@mui/material';
 import React from 'react';
-import Chip from '@mui/meterial/Chip';
 
 export default function sectorchip({color, fontColor, content}) {
   return (
