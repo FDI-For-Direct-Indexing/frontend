@@ -10,7 +10,7 @@ import { API_URL } from '../../../common/api';
 import SectionChip from "../../../common/ui/sectionChip";
 import { createRoot } from "react-dom/client";
 
-const RankList = () => {
+const RankList = ({setGroupIdx}) => {
   const { sliderValues, setStockList, colorList } = useContext(WeightContext);
   const svgRef = useRef();
   const [data, setData] = useState([]);
@@ -159,9 +159,12 @@ const RankList = () => {
       })
       .on("mouseenter", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#f0f0f0");
+        setGroupIdx(d.id); // 클릭한 기업의 group idx를 저장 => highlight
+        console.log(d.id);
       })
       .on("mouseleave", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#ffffff");
+        setGroupIdx(null); // 클릭한 기업의 id를 저장 => highlight off
       });
 
     rowsEnter

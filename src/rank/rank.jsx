@@ -1,19 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import NavbarHeader from '../header/navbarHeader';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ChatSummary from './components/chatsummary';
-import CartSummary from './components/cartsummary';
+import ChatSummary from './components/chatSummary';
+import CartSummary from './components/cartSummary';
 import Clustering from './components/clustering';
 import Parallel from './components/parallelPlot/parallel';
 import RankList from './components/weightgraph/rankList';
-import TitleLine from './components/weightgraph/titleline';
+import TitleLine from './components/weightgraph/titleLine';
 import CustomGraph from './components/weightgraph/customGraph';
 import { WeightProvider } from '../contexts/weightProvider';
 import { PlotProvider } from '../contexts/plotProvider';
+import DashedChart from './components/parallelPlot/dashedChart';
 
 export default function Rank() {
+
+  const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
+
   return (
     <div className='pageBack'>
       <NavbarHeader />
@@ -34,12 +38,13 @@ export default function Rank() {
                 <div className='basicBox'>
                   <CustomGraph title="맞춤형 순위" />
                   <TitleLine />
-                  <RankList />
+                  <RankList setGroupIdx={setHighlightGroupIdx} />
                 </div>
               </Col>
               <Col xs={6}>
                 <Clustering />
-                <Parallel />
+                <DashedChart highlightGroupIdx={highlightGroupIdx} />
+                {/* <Parallel /> */}
               </Col>
             </Row>
           </PlotProvider>

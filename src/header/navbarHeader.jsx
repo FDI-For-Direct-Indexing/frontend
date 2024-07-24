@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/navbar.css";
 import { useNavigate } from "react-router-dom";
 import { DESCRIPTION } from "../constants/color";
-import { useKeyword, useIncludedResults, useShowIncludedResults } from "./hooks/searchBar";
+import { useKeyword, useIncludedResults, useShowIncludedResults } from "./hooks/searchbar";
 import LOGO from "../assets/image/header-logo.svg";
 import CART from "../assets/image/cart.svg";
 import SEARCH from "../assets/image/search.svg";
