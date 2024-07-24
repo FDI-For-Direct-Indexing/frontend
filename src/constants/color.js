@@ -57,18 +57,18 @@ export const STOCK_GAIN = "#FF0E0E";
 export const STOCK_SINKS = "";
 
 // 종목 섹터 칩
-const ENERGY = {chip: "#FCD5D9", font:"#F0142F"};                  // 에너지
-const MATERIAL = {chip: "#FEC9FF", font:"#C700F9"};                // 소재
-const INDUSTRIAL = {chip: "#E1C9FF", font:"#8B00F9"};              // 산업재
-const CONSUMER_DISCRETIONARY = {chip: "#E4E4E4", font:"#808080"};  // 자유소비재
-const CONSUMER_STAPLES = {chip: "#D0FFE0", font:"#05B25F"};        // 필수소비재
-const HEALTH = {chip: "#C9D1FF", font:"#0019F9"};                  // 건강관리
-const FINANCE = {chip: "#FFE6C9", font:"#F95A00"};                 // 금융
-const SWHW = {chip: "#D9E4FF", font:"#1E5EFF"};                    // SW/HW
-const SEMICONDUCTOR = {chip: "#E6E9F4", font:"#5A607F"};           // 반도체
-const COMMUNICATION = {chip: "#FFFDD0", font:"#CFBB03"};           // 커뮤니케이션
-const UTILITY = {chip: "#FFF4C9", font:"#F99600"};                 // 유틸리티
-const PROPERTY = {chip: "#FFC9C9", font:"#F90000"};                // 부동산
+const ENERGY = { chip: '#FCD5D9', font: "#F0142F" };                  // 에너지
+const MATERIAL = { chip: "#FEC9FF", font: "#C700F9" };                // 소재
+const INDUSTRIAL = { chip: "#E1C9FF", font: "#8B00F9" };              // 산업재
+const CONSUMER_DISCRETIONARY = { chip: "#E4E4E4", font: "#808080" };  // 자유소비재
+const CONSUMER_STAPLES = { chip: "#D0FFE0", font: "#05B25F" };        // 필수소비재
+const HEALTH = { chip: "#C9D1FF", font: "#0019F9" };                  // 건강관리
+const FINANCE = { chip: "#FFE6C9", font: "#F95A00" };                 // 금융
+const SWHW = { chip: "#D9E4FF", font: "#1E5EFF" };                    // SW/HW
+const SEMICONDUCTOR = { chip: "#E6E9F4", font: "#5A607F" };           // 반도체
+const COMMUNICATION = { chip: "#FFFDD0", font: "#CFBB03" };           // 커뮤니케이션
+const UTILITY = { chip: "#FFF4C9", font: "#F99600" };                 // 유틸리티
+const PROPERTY = { chip: "#FFC9C9", font: "#F90000" };                // 부동산
 
 export const colorMapping = {
   "에너지": ENERGY,

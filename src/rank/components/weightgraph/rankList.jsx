@@ -22,7 +22,7 @@ const RankList = () => {
     const fetchCompanies = async () => {
       try {
         const response = await axios.get(
-        `${API_URL.LOCAL}/api/corporates/list`
+          `${API_URL.LOCAL}/api/corporates/list`
         );
         const weightData = response.data;
         setData(weightData);
@@ -38,16 +38,16 @@ const RankList = () => {
 
         if (data != undefined && data.length > 0) {
           matchColor().then((d) => {
-              console.log(d);
-              setData(d);
-              update(data, svg, ...sliderValues, "group1");
+            console.log(d);
+            setData(d);
+            update(data, svg, ...sliderValues, "group1");
           });
         }
       } catch (error) {
-          console.error("Error fetching data:", error);
+        console.error("Error fetching data:", error);
       }
     };
-    
+
     fetchCompanies();
   }, []);
 
@@ -130,7 +130,7 @@ const RankList = () => {
     update(sortedData, svg, ...sliderValues, "group1");
   };
 
-  const update = async (data, svg, weight_d, weight_s, weight_n, weight_m, weight_q, groupClass ) => {
+  const update = async (data, svg, weight_d, weight_s, weight_n, weight_m, weight_q, groupClass) => {
     if (data === undefined) {
       return;
     }
@@ -214,17 +214,17 @@ const RankList = () => {
       .attr("font-weight", "bold")
       .text((d) => (d.name.length > 10 ? `${d.name.slice(0, 10)}...` : d.name));
 
-    // 섹터
-    rowsEnter
-      .append("colorchip")
-      .attr("width", 200)
-      .attr("height", height)
-      .attr("x", 300)
-      .attr("y", 0)
-      .each(function(d) {
-        const colorObject = this;
-        const root = createRoot(colorObject);
-        root.render(<SectionChip content={d.name} />);
+    rowsEnter // 섹터
+      .append("foreignObject")
+      .attr("width", 40)
+      .attr("height", 40)
+      .attr("x", 150)
+      .attr("y", 10)
+      .each(function (d) {
+        const foreignObject = this;
+        const root = createRoot(foreignObject);
+        console.log(d, d.sector);
+        root.render(<SectionChip sector={d.sector} />);
       });
 
     rowsEnter
