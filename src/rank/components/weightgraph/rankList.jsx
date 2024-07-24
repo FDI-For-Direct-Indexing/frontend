@@ -6,7 +6,7 @@ import { WeightContext } from "../../../contexts/weightProvider";
 import { useNavigate } from "react-router-dom";
 import { CLUSTER } from "../../../constants/color";
 import { API_URL } from '../../../common/api';
-import sectorchip from "../../../common/ui/sectorchip";
+// import sectorchip from "../../../common/ui/sectorchip";
 import SectionChip from "../../../common/ui/sectionChip";
 import { createRoot } from "react-dom/client";
 
