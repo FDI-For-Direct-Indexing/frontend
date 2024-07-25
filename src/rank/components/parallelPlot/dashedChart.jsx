@@ -12,27 +12,27 @@ export default function DashedChart({ highlightGroupIdx }) {
 
   const sixRates = [
     {
-      name: "그룹 1",
+      name: "group1",
       data: [45, 52, 38, 24, 33, 26],
       color: CLUSTER[0]
     },
     {
-      name: "그룹 2",
+      name: "group2",
       data: [35, 41, 62, 42, 13, 18],
       color: CLUSTER[1]
     },
     {
-      name: '그룹 3',
+      name: 'group3',
       data: [87, 57, 74, 99, 75, 38],
       color: CLUSTER[2]
     },
     {
-      name: "그룹 4",
+      name: "group4",
       data: [75, 31, 92, 32, 83, 8],
       color: CLUSTER[3]
     },
     {
-      name: "그룹 5",
+      name: "group5",
       data: [5, 21, 32, 22, 73, 98],
       color: CLUSTER[4]
     },
@@ -49,12 +49,13 @@ export default function DashedChart({ highlightGroupIdx }) {
         dashArray: originalDashArray[index]
       }));
     } else {
+      console.log(highlightGroupIdx);
       return sixRates.map((series, index) => ({
         name: series.name,
         data: series.data,
-        color: index === highlightGroupIdx ? series.color : '#CCCCCC',
-        strokeWidth: index === highlightGroupIdx ? 8 : originalStroke[index],
-        opacity: index === highlightGroupIdx ? 1 : 0.5,
+        color: highlightGroupIdx.includes(index) ? series.color : '#CCCCCC',
+        strokeWidth: highlightGroupIdx.includes(index) ? 8 : originalStroke[index],
+        opacity: highlightGroupIdx.includes(index) ? 1 : 0.5,
         dashArray: originalDashArray[index]
       }));
     }

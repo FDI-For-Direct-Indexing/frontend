@@ -163,8 +163,10 @@ const RankList = ({ setGroupIdx }) => {
       })
       .on("mouseenter", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#f0f0f0");
-        setGroupIdx(d.id); // 클릭한 기업의 group idx를 저장 => highlight
-        console.log(d.id);
+        setGroupIdx(groupClass); // 클릭한 기업의 group idx를 저장 => highlight
+        // console.log(d, "디");
+        console.log(groupClass);
+        // console.log(d.id);
       })
       .on("mouseleave", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#ffffff");
