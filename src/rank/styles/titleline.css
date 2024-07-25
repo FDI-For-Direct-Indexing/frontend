@@ -6,38 +6,58 @@
 
 .titleline {
   display: flex;
-  align-items: center; /* 세로 중앙 정렬 */
+  align-items: center;
+  /* 세로 중앙 정렬 */
   justify-content: space-between;
   margin-bottom: 0px;
   font-weight: bold;
 }
 
 .titleline-item {
-  flex: 1; /* 기본 간격 10px */
+  flex: 1;
+  /* 기본 간격 10px */
   text-align: center;
 }
 
-.titleline-item.company-name {
-  flex: 2;
-  /* margin: 0 10px; */
+.rank {
+  flex: 0.7;
+  white-space: nowrap;
 }
 
-.titleline-item.stock-code {
-  flex: 1.5;
-  /* margin: 0 20px; */
+.group {
+  padding-left: 10px;
+  white-space: nowrap;
+}
+
+.stock-code {
+  padding-left: 10px;
+  white-space: nowrap;
+}
+
+.sector {
+  padding-left: 25px;
+  white-space: nowrap;
+}
+
+.company-name {
+  padding-left: 55px;
+  white-space: nowrap;
 }
 
 .titleline-item.graph {
-  flex: 5;
+  flex: 4;
   /* margin: 0 50px; */
+  white-space: nowrap;
 }
 
 .titleline-item.cart {
   margin-right: 15px;
+  white-space: nowrap;
 }
 
 .separator-line {
   width: 100%;
-  border-top: 2px solid; /* 선의 색상과 두께 조정 */
+  border-top: 2px solid;
+  /* 선의 색상과 두께 조정 */
   margin-top: 10px;
 }

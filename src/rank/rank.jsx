@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import NavbarHeader from '../header/navbarHeader';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -22,7 +22,7 @@ export default function Rank() {
     <div className='pageBack'>
       <NavbarHeader />
 
-      <Container style={{ padding: '25px 100px' }} fluid >
+      <Container style={{ padding: '25px 5vw' }} fluid >
         <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
           <PlotProvider>
             <Row style={{ marginBottom: '25px' }}>
@@ -35,7 +35,7 @@ export default function Rank() {
             </Row>
             <Row>
               <Col xs={6}>
-                <div className='basicBox'>
+                <div className='basicBox' style={{ height: '750px' }}>
                   <CustomGraph title="맞춤형 순위" />
                   <TitleLine />
                   <RankList setGroupIdx={setHighlightGroupIdx} />
