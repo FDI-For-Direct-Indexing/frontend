@@ -13,11 +13,6 @@ import CART from "../assets/image/cart.svg";
 import SEARCH from "../assets/image/search.svg";
 import USER from "../assets/image/header-user.svg";
 import CHATSYMBOL from "../assets/image/chat-symbol.svg";
-import {
-  useKeyword,
-  useIncludedResults,
-  useShowIncludedResults,
-} from "./hooks/searchBar";
 
 function NavbarHeader() {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
