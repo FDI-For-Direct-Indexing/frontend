@@ -3,7 +3,6 @@ import ApexCharts from 'apexcharts';
 import { DESCRIPTION, CLUSTER } from "../../../constants/color";
 
 export default function DashedChart({ highlightGroupIdx }) {
-  // const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
@@ -12,27 +11,27 @@ export default function DashedChart({ highlightGroupIdx }) {
 
   const sixRates = [
     {
-      name: "group1",
+      name: "그룹 1",
       data: [45, 52, 38, 24, 33, 26],
       color: CLUSTER[0]
     },
     {
-      name: "group2",
+      name: "그룹 2",
       data: [35, 41, 62, 42, 13, 18],
       color: CLUSTER[1]
     },
     {
-      name: 'group3',
+      name: '그룹 3',
       data: [87, 57, 74, 99, 75, 38],
       color: CLUSTER[2]
     },
     {
-      name: "group4",
+      name: "그룹 4",
       data: [75, 31, 92, 32, 83, 8],
       color: CLUSTER[3]
     },
     {
-      name: "group5",
+      name: "그룹 5",
       data: [5, 21, 32, 22, 73, 98],
       color: CLUSTER[4]
     },
@@ -49,12 +48,12 @@ export default function DashedChart({ highlightGroupIdx }) {
         dashArray: originalDashArray[index]
       }));
     } else {
-      console.log(highlightGroupIdx);
+      console.log("체크", highlightGroupIdx);
       return sixRates.map((series, index) => ({
         name: series.name,
         data: series.data,
         color: highlightGroupIdx.includes(index) ? series.color : '#CCCCCC',
-        strokeWidth: highlightGroupIdx.includes(index) ? 8 : originalStroke[index],
+        strokeWidth: highlightGroupIdx.includes(index) ? 6 : originalStroke[index],
         opacity: highlightGroupIdx.includes(index) ? 1 : 0.5,
         dashArray: originalDashArray[index]
       }));

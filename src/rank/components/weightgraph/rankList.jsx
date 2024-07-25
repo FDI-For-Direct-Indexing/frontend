@@ -41,7 +41,7 @@ const RankList = ({ setGroupIdx }) => {
 
         if (data != undefined && data.length > 0) {
           matchColor().then((d) => {
-            // console.log(d);
+            console.log('suseEffect,,,', d);
             setData(d);
             update(data, svg, ...sliderValues, "group1");
           });
@@ -63,7 +63,14 @@ const RankList = ({ setGroupIdx }) => {
           .attr("width", "100%")
           .attr("minWidth", "600px")
           .attr("height", d.length * 50 + 100); // 데이터 길이에 따라 높이 조정
-        return update(d, svg, ...sliderValues, "group1");
+        
+        const groupClasses = ["group 0", "group 1", "group 2", "group 3", "group 4"];
+
+        groupClasses.forEach((groupClass) => {
+          // console.log('groupClass', groupClass);
+          update(d, svg, ...sliderValues, groupClass);
+        });
+        // return update(d, svg, ...sliderValues, "group1");
       });
     }
   }, [colorList]);
@@ -159,16 +166,15 @@ const RankList = ({ setGroupIdx }) => {
       .attr("class", "row")
       .attr("transform", (d, i) => `translate(0, ${i * height} + 20)`)
       .on("click", (event, d) => {
-        navigate(`/${d.id}`); // 추후 router로 페이지 이동 작성
+        navigate(`/dashboard/${d.id}`); // 추후 router로 페이지 이동 작성
       })
       .on("mouseenter", function (event, d) {
+        console.log("mouseenter", d);
         d3.select(this).select("rect.background").attr("fill", "#f0f0f0");
         setGroupIdx(groupClass); // 클릭한 기업의 group idx를 저장 => highlight
-        // console.log(d, "디");
-        console.log(groupClass);
-        // console.log(d.id);
       })
       .on("mouseleave", function (event, d) {
+        console.log("mouseleave, ", d);
         d3.select(this).select("rect.background").attr("fill", "#ffffff");
         setGroupIdx(null); // 클릭한 기업의 id를 저장 => highlight off
       });
@@ -198,7 +204,7 @@ const RankList = ({ setGroupIdx }) => {
       .attr("x", 5)
       .attr("display", "flex")
       .attr("justify-content", "end")
-      .attr("font-weight", "bold")
+      // .attr("font-weight", "bold")
       .text((d, i) => i + 1);
 
     rowsEnter // 군집색상
@@ -214,7 +220,7 @@ const RankList = ({ setGroupIdx }) => {
       .attr("y", 30)
       .attr("font-size", 16)
       .attr("x", 80)
-      .attr("font-weight", "bold")
+      // .attr("font-weight", "bold")
       .text((d) => (d.id.length > 10 ? `${d.id.slice(0, 8)}...` : d.id));
 
     rowsEnter // 종목코드?
@@ -222,7 +228,7 @@ const RankList = ({ setGroupIdx }) => {
       .attr("y", 30)
       .attr("font-size", 16)
       .attr("x", 220)
-      .attr("font-weight", "bold")
+      // .attr("font-weight", "bold")
       .text((d) => (d.name.length > 10 ? `${d.name.slice(0, 8)}...` : d.name));
 
     rowsEnter // 섹터

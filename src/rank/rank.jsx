@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import ChatSummary from './components/chatSummary';
 import CartSummary from './components/cartSummary';
 import Clustering from './components/clustering';
-import Parallel from './components/parallelPlot/parallel';
 import RankList from './components/weightgraph/rankList';
 import TitleLine from './components/weightgraph/titleLine';
 import CustomGraph from './components/weightgraph/customGraph';
