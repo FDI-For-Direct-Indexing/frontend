@@ -1,0 +1,202 @@
+p {
+  margin-bottom: 0;
+}
+
+.question-mark {
+  cursor: pointer;
+}
+
+.dashboard {
+  background-color: #f5f6fa;
+  height: 100%;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.left-part > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 33px;
+}
+
+.dashboard .stock-info {
+  width: 250px;
+  height: 202px;
+  border-radius: 6px;
+  background-color: white;
+  padding: 17px 25px;
+}
+
+.stock-info div:first-child {
+  display: flex;
+}
+
+.stock-info > div:first-child {
+  justify-content: space-between;
+}
+
+.stock-info .stock-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px 6px 3px 0px;
+}
+
+.stock-info .stock-cart {
+  width: 22px;
+  cursor: pointer;
+}
+
+.stock-info .question-mark {
+  width: 20px;
+  cursor: pointer;
+}
+
+.stock-info .stock-code {
+  color: #5a607f;
+  font-size: 14px;
+  margin-bottom: 51px;
+}
+
+.stock-info .stock-price {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #f91919;
+}
+
+.stock-info .stock-compare {
+  display: flex;
+}
+
+.stock-compare {
+  display: flex;
+  align-items: center;
+}
+
+.stock-compare .stock-fluctuation {
+  color: #f91919;
+  font-size: 14px;
+  margin: 0px 0px 0px 3px;
+}
+
+.dashboard .emotion-rate {
+  width: 255px;
+  height: 202px;
+  border-radius: 6px;
+  color: white;
+  padding: 20px;
+}
+
+.emotion-rate > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emotion-rate .emotion-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.emotion-rate .progress-bar {
+  margin: 19px 0px 0px 52px;
+}
+
+/*언급량*/
+.mention-amount {
+  width: 100%;
+  height: 469px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 21px;
+  padding: 23px 25px 0px 25px;
+}
+
+.mention-amount > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mention-amount .mention-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/*관련 뉴스*/
+.related-news {
+  width: 100%;
+  height: 396px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 21px;
+  padding: 23px 25px 0px 25px;
+}
+
+.related-news > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.related-news > div:first-child > div {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.related-news .news-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.related-news .news-info {
+  color: #5a607f;
+  font-size: 14px;
+}
+
+/*right-part*/
+.right-part .related-keywords {
+  height: 275px;
+  background-color: white;
+  border-radius: 6px;
+  padding: 25px;
+}
+
+.related-keywords > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.related-keywords .keywords-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.indicators > div {
+  display: flex;
+  margin-top: 23px;
+  gap: 24px;
+}
+
+.indicators > div > div {
+  width: 50%;
+  height: 394px;
+  background-color: white;
+  border-radius: 6px;
+  padding: 25px;
+}
+
+.indicators .indicator > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.indicators .indicator .indicator-title {
+  font-size: 16px;
+  font-weight: 700;
+}
