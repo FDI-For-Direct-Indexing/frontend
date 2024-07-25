@@ -1,18 +1,17 @@
 #renderer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
 
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #renderer svg {
-    margin: auto;
-  }
-  
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#renderer svg {
+  margin: auto;
+}

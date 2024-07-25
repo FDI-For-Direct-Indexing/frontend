@@ -3,20 +3,16 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useNavigate } from "react-router-dom";
-import { DESCRIPTION } from "../constants/color";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/navbar.css";
-import LOGO from "../assets/image/header-logo.png";
+import { useNavigate } from "react-router-dom";
+import { DESCRIPTION } from "../constants/color";
+import { useKeyword, useIncludedResults, useShowIncludedResults } from "./hooks/searchBar";
+import LOGO from "../assets/image/header-logo.svg";
 import CART from "../assets/image/cart.svg";
 import SEARCH from "../assets/image/search.svg";
 import USER from "../assets/image/header-user.svg";
 import CHATSYMBOL from "../assets/image/chat-symbol.svg";
-import {
-  useKeyword,
-  useIncludedResults,
-  useShowIncludedResults,
-} from "./hooks/searchBar";
 
 function NavbarHeader() {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
@@ -74,15 +70,15 @@ function NavbarHeader() {
 
           <Nav.Link href="/" className="nav-right-link" >
             <img src={CHATSYMBOL} alt="Chat" width="24" style={{ marginRight: '8px' }} />
-            <p style={{ margin: 0, color:DESCRIPTION }}>새 채팅 시작하기</p>
+            <p style={{ margin: 0, color: DESCRIPTION }}>새 채팅 시작하기</p>
           </Nav.Link>
           <Nav.Link href="/cart" className="nav-right-link" >
             <img src={CART} alt="Cart" width="24" style={{ marginRight: '8px' }} />
-            <p style={{ margin: 0, color:DESCRIPTION }}>장바구니</p>
+            <p style={{ margin: 0, color: DESCRIPTION }}>장바구니</p>
           </Nav.Link>
           <Nav.Link href="/user" className="nav-right-link" >
             <img src={USER} alt="User" width="24" style={{ marginRight: '8px' }} />
-            <p style={{ margin: 0, color:DESCRIPTION }}>홍길동 님</p>
+            <p style={{ margin: 0, color: DESCRIPTION }}>홍길동 님</p>
           </Nav.Link>
 
         </Navbar.Collapse>

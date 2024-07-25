@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^5.16.4",
+    "@nivo/parallel-coordinates": "^0.87.0",
+    "@nivo/scatterplot": "^0.87.0",
+    "@nivo/tooltip": "^0.87.0",
     "@react-spring/web": "^9.7.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -21,6 +27,7 @@
     "react-scripts": "5.0.1",
     "recharts": "^2.12.7",
     "socket.io-client": "^4.7.5",
+    "react-spinners": "^0.14.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
