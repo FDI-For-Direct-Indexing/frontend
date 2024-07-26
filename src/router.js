@@ -13,7 +13,6 @@ const router = createBrowserRouter([
   { path: "/dashboard/:code", element: <Dashboard />, index: true },
   { path: "/cart/:userId", element: <Cart />, index: true },
   { path: "/loading", element: <ProgressPage />, index: true },
-  { path: "/:code", element: <Dashboard />, index: true },
 ]);
 
 export default router;

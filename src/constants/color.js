@@ -4,7 +4,7 @@ const SKY_BLUE = "#56ECF6";
 const BLACK = "#000000";
 const GREEN = "#1FD286";
 
-// 컴포넌트에 사용될 지정 색 
+// 컴포넌트에 사용될 지정 색
 // 여기 아래 색깔들을 주로 사용하기!
 // (색이 변경될 경우 한꺼번에 변경하기 위함)
 
@@ -38,7 +38,7 @@ export const CART_FULL = "#2678F3";
 // 주식 비율 지표
 const PROFIT = "#FF7676";
 const SAFETY = "#FFDD87";
-const GROWTH = "#91D600"
+const GROWTH = "#91D600";
 const EFFICIENCY = "#87D4FF";
 const SENTIMENT = "#C376FF";
 

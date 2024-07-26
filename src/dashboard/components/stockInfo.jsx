@@ -2,14 +2,12 @@ import { React, useEffect, useState } from "react";
 import axios from "axios";
 import { connectSocket, joinRoom } from "../services/stockPrice";
 import { disconnectSocket, requestCurrentPrice } from "../services/stockPrice";
-import cart from "../../assets/image/cart.svg";
-import fullcart from "../../assets/image/full-cart.svg";
 import questionmark from "../../assets/image/questionmark.svg";
 import upicon from "../../assets/image/up-icon.svg";
 import downicon from "../../assets/image/down-icon.svg";
+import ClickCart from "./clickCart";
 
 export default function StockInfo({ code }) {
-  const [isCartFull, setIsCartFull] = useState(false);
   const [name, setName] = useState("");
   const [stockCompare, setStockCompare] = useState(0);
   const [compare, setCompare] = useState(0);
@@ -22,10 +20,6 @@ export default function StockInfo({ code }) {
 
   const handleCompare = (loadedCompare) => {
     setStockCompare(loadedCompare);
-  };
-
-  const handleCartClick = () => {
-    setIsCartFull((prev) => !prev);
   };
 
   useEffect(() => {
@@ -77,12 +71,7 @@ export default function StockInfo({ code }) {
       <div>
         <div>
           <p className="stock-name">{name}</p>
-          <img
-            className="stock-cart"
-            src={isCartFull ? fullcart : cart}
-            alt="cart"
-            onClick={handleCartClick}
-          />
+          <ClickCart />
         </div>
         <img className="question-mark" src={questionmark} alt="questionmark" />
       </div>
