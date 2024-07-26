@@ -58,30 +58,43 @@ export const STOCK_GAIN = "#FF0E0E";
 export const STOCK_SINKS = "";
 
 // 종목 섹터 칩
-const ENERGY = { color: "#FCD5D9", font: "#F0142F" };                  // 에너지
-const MATERIAL = { color: "#FEC9FF", font: "#C700F9" };                // 소재
-const INDUSTRIAL = { color: "#E1C9FF", font: "#8B00F9" };              // 산업재
-const CONSUMER_DISCRETIONARY = { color: "#E4E4E4", font: "#808080" };  // 자유소비재
-const CONSUMER_STAPLES = { color: "#D0FFE0", font: "#05B25F" };        // 필수소비재
-const HEALTH = { color: "#C9D1FF", font: "#0019F9" };                  // 건강관리
-const FINANCE = { color: "#FFE6C9", font: "#F95A00" };                 // 금융
-const SWHW = { color: "#D9E4FF", font: "#1E5EFF" };                    // SW/HW
-const SEMICONDUCTOR = { color: "#E6E9F4", font: "#5A607F" };           // 반도체
-const COMMUNICATION = { color: "#FFFDD0", font: "#CFBB03" };           // 커뮤니케이션
-const UTILITY = { color: "#FFF4C9", font: "#F99600" };                 // 유틸리티
-const PROPERTY = { color: "#FFC9C9", font: "#F90000" };                // 부동산
+const ELECTRIC = { color: "#FCD5D9", font: "#F0142F" }; // 전기전자
+const SERVICE = { color: "#FFC9C9", font: "#A33F3F" }; // 서비스업
+const OTHER_FINANCE = { color: "#FEC9FF", font: "#C700F9" }; // 기타금융
+const CHEMISTRY = { color: "#F6DCFF", font: "#D830F4" }; // 화학
+const CONSTRUCTION = { color: "#FFE6C9", font: "#F95A00" }; // 건설업
+const TELECOMMUNICATION = { color: "#FFDEAD", font: "#C48100" }; // 통신업
+const MEDICINE = { color: "#FFE16D", font: "#F99600" }; // 의약품
+const FOOD = { color: "#FFF4C9", font: "#F99600" }; // 음식료품
+const MANUFACTURE = { color: "#FFF0A2", font: "#A8A05C" }; // 비금속광물
+const OTEHR_MANUFACTURE = { color: "#FFFDD0", font: "#CFBB03" }; // 기타제조업
+const CLOTHING = { color: "#D0FFE0", font: "#05B25F" }; // 섬유의복
+const TRANSPORTATION = { color: "#41FFD1", font: "#2B7A38" }; // 운수장비
+const WAREHOUSING = { color: "#C9F2FF", font: "#03A0B5" }; // 운수창고업
+const DISTRIBUTION = { color: "#D9E4FF", font: "#1E5EFF" }; // 유통업
+const PRECISION_MEDICINE = { color: "#C9D1FF", font: "#0019F9" }; // 의료정밀
+const ELECTRIC_GAS = { color: "#E6E9F4", font: "#5A607F" }; // 전기가스업
+const STEEL = { color: "#E1C9FF", font: "#8B00F9" }; // 철강금속
+const MACHINE = { color: "#E4E4E4", font: "#808080" };  // 기계
 
 export const colorMapping = {
-  "에너지": ENERGY,
-  "소재": MATERIAL,
-  "산업재": INDUSTRIAL,
-  "자유소비재": CONSUMER_DISCRETIONARY,
-  "필수소비재": CONSUMER_STAPLES,
-  "건강관리": HEALTH,
-  "금융": FINANCE,
-  "SW/HW": SWHW,
-  "반도체": SEMICONDUCTOR,
-  "커뮤니케이션": COMMUNICATION,
-  "유틸리티": UTILITY,
-  "부동산": PROPERTY
+  "전기전자": ELECTRIC,
+  "서비스업": SERVICE,
+  "기타금융": OTHER_FINANCE,
+  "화학": CHEMISTRY,
+  "건설업": CONSTRUCTION,
+  "통신업": TELECOMMUNICATION,
+  "의약품": MEDICINE,
+  "음식료품": FOOD,
+  "비금속광물": MANUFACTURE,
+  "기타제조업": OTEHR_MANUFACTURE,
+  "섬유의복": CLOTHING,
+  "운수장비": TRANSPORTATION,
+  "운수창고업": WAREHOUSING,
+  "유통업": DISTRIBUTION,
+  "의료정밀": PRECISION_MEDICINE,
+  "전기가스업": ELECTRIC_GAS,
+  "철강금속": STEEL,
+  "기계": MACHINE
 };
+

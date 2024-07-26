@@ -13,14 +13,23 @@ import CustomGraph from './components/weightgraph/customGraph';
 import { WeightProvider } from '../contexts/weightProvider';
 import { PlotProvider } from '../contexts/plotProvider';
 import DashedChart from './components/parallelPlot/dashedChart';
+import { useParams } from 'react-router-dom';
 
 export default function Rank() {
 
+  const params = useParams();
+
   const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
+
+
+  const recentCart = [
+    { name: '삼성전자', price: 84600 },
+    { name: '카카오', price: 146000 },
+  ];
 
   return (
     <div className='pageBack'>
-      <NavbarHeader />
+      <NavbarHeader userId={params.userId} />
 
       <Container style={{ padding: '25px 5vw' }} fluid >
         <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
@@ -30,7 +39,7 @@ export default function Rank() {
                 <ChatSummary />
               </Col>
               <Col xs={4}>
-                <CartSummary />
+                <CartSummary recentCart={recentCart} />
               </Col>
             </Row>
             <Row>
