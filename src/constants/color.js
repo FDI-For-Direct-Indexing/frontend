@@ -4,7 +4,7 @@ const SKY_BLUE = "#56ECF6";
 const BLACK = "#000000";
 const GREEN = "#1FD286";
 
-// 컴포넌트에 사용될 지정 색 
+// 컴포넌트에 사용될 지정 색
 // 여기 아래 색깔들을 주로 사용하기!
 // (색이 변경될 경우 한꺼번에 변경하기 위함)
 
@@ -37,7 +37,7 @@ export const CART_FULL = "#2678F3";
 // 주식 비율 지표
 const PROFIT = "#FF7676";
 const SAFETY = "#FFDD87";
-const GROWTH = "#91D600"
+const GROWTH = "#91D600";
 const EFFICIENCY = "#87D4FF";
 const SENTIMENT = "#C376FF";
 
@@ -57,15 +57,30 @@ export const STOCK_GAIN = "#FF0E0E";
 export const STOCK_SINKS = "";
 
 // 종목 섹터 칩
-export const ENERGY = {chip: "#FCD5D9", font:"#F0142F"};                  // 에너지
-export const MATERIAL = {chip: "#FEC9FF", font:"#C700F9"};                // 소재
-export const INDUSTRIAL = {chip: "#E1C9FF", font:"#8B00F9"};              // 산업재
-export const CONSUMER_DISCRETIONARY = {chip: "#E4E4E4", font:"#808080"};  // 자유소비재
-export const CONSUMER_STAPLES = {chip: "#D0FFE0", font:"#05B25F"};        // 필수소비재
-export const HEALTH = {chip: "#C9D1FF", font:"#0019F9"};                  // 건강관리
-export const FINANCE = {chip: "#FFE6C9", font:"#F95A00"};                 // 금융
-export const SWHW = {chip: "#D9E4FF", font:"#1E5EFF"};                    // SW/HW
-export const SEMICONDUCTOR = {chip: "#E6E9F4", font:"#5A607F"};           // 반도체
-export const COMMUNICATION = {chip: "#FFFDD0", font:"#CFBB03"};           // 커뮤니케이션
-export const UTILITY = {chip: "#FFF4C9", font:"#F99600"};                 // 유틸리티
-export const PROPERTY = {chip: "#FFC9C9", font:"#F90000"};                // 부동산
+const ENERGY = { color: "#FCD5D9", font: "#F0142F" }; // 에너지
+const MATERIAL = { color: "#FEC9FF", font: "#C700F9" }; // 소재
+const INDUSTRIAL = { color: "#E1C9FF", font: "#8B00F9" }; // 산업재
+const CONSUMER_DISCRETIONARY = { color: "#E4E4E4", font: "#808080" }; // 자유소비재
+const CONSUMER_STAPLES = { color: "#D0FFE0", font: "#05B25F" }; // 필수소비재
+const HEALTH = { color: "#C9D1FF", font: "#0019F9" }; // 건강관리
+const FINANCE = { color: "#FFE6C9", font: "#F95A00" }; // 금융
+const SWHW = { color: "#D9E4FF", font: "#1E5EFF" }; // SW/HW
+const SEMICONDUCTOR = { color: "#E6E9F4", font: "#5A607F" }; // 반도체
+const COMMUNICATION = { color: "#FFFDD0", font: "#CFBB03" }; // 커뮤니케이션
+const UTILITY = { color: "#FFF4C9", font: "#F99600" }; // 유틸리티
+const PROPERTY = { color: "#FFC9C9", font: "#F90000" }; // 부동산
+
+export const colorMapping = {
+  에너지: ENERGY,
+  소재: MATERIAL,
+  산업재: INDUSTRIAL,
+  자유소비재: CONSUMER_DISCRETIONARY,
+  필수소비재: CONSUMER_STAPLES,
+  건강관리: HEALTH,
+  금융: FINANCE,
+  "SW/HW": SWHW,
+  반도체: SEMICONDUCTOR,
+  커뮤니케이션: COMMUNICATION,
+  유틸리티: UTILITY,
+  부동산: PROPERTY,
+};
