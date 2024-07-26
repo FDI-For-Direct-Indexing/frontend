@@ -6,7 +6,7 @@ import axios from "axios";
 export default function Indicator({ code, type }) {
   const [data, setData] = useState({ categories: [], rates: [] });
 
-  const titles = ["수익성", "안정성", "성장성", "성장성"];
+  const titles = ["수익성", "안정성", "성장성", "활동성"];
   let title = titles[0];
   if (type === "profit") title = titles[0];
   else if (type === "stability") title = titles[1];
