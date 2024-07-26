@@ -1,5 +1,5 @@
-import React from "react";
-import { colorMapping } from "../../constants/color";
+import React from 'react';
+import { colorMapping } from '../../constants/color';
 
 export default function SectionChip({ sector }) {
   const { color, font } = colorMapping[sector] || { chip: "#000000", font: "#ffffff" }; // 기본 색상 설정
