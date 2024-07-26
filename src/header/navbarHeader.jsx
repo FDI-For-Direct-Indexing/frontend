@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -13,8 +13,9 @@ import CART from "../assets/image/cart.svg";
 import SEARCH from "../assets/image/search.svg";
 import USER from "../assets/image/header-user.svg";
 import CHATSYMBOL from "../assets/image/chat-symbol.svg";
+import { getUsername } from "./apis/username";
 
-function NavbarHeader() {
+function NavbarHeader({ userId }) {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
   const includedResults = useIncludedResults(keyword);
   const {
@@ -23,6 +24,12 @@ function NavbarHeader() {
     handleIncludedResultClick,
     wrapperRef,
   } = useShowIncludedResults(setKeyword);
+
+  const [username, setUsername] = useState("게스트");
+
+  useEffect(() => {
+    setUsername(getUsername(userId));
+  }, [username]);
 
   const navigate = useNavigate();
 
@@ -78,7 +85,7 @@ function NavbarHeader() {
           </Nav.Link>
           <Nav.Link href="/user" className="nav-right-link" >
             <img src={USER} alt="User" width="24" style={{ marginRight: '8px' }} />
-            <p style={{ margin: 0, color: DESCRIPTION }}>홍길동 님</p>
+            <p style={{ margin: 0, color: DESCRIPTION }}>{username} 님</p>
           </Nav.Link>
 
         </Navbar.Collapse>
