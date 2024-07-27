@@ -93,6 +93,13 @@ p {
   padding: 20px;
 }
 
+.emotion-rate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .emotion-rate > div:first-child {
   display: flex;
   justify-content: space-between;
@@ -105,7 +112,10 @@ p {
 }
 
 .emotion-rate .progress-bar {
-  margin: 19px 0px 0px 52px;
+  width: 100%;
+  padding: 3px;
+  margin-top: 19px;
+  text-align: center;
 }
 
 /*언급량*/
