@@ -75,7 +75,7 @@ export default function StockInfo({ code }) {
         </div>
         <img className="question-mark" src={questionmark} alt="questionmark" />
       </div>
-      <p className="stock-code">{code}</p>
+      <p className="stock-info-code">{code}</p>
       <p className="stock-price" style={{ color: color }}>
         {stockPrice}
       </p>
