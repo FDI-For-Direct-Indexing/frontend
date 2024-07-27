@@ -1,0 +1,178 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.chat-window {
+  width: 800px;
+  height: 70vh;
+  max-height: 70vh;
+  border: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+/* For Firefox */
+.chat-messages {
+  scrollbar-width: none; /* Remove scrollbar space */
+}
+
+/* For Internet Explorer, Edge */
+.chat-messages {
+  -ms-overflow-style: none; /* Remove scrollbar space */
+}
+
+.chat-message {
+  padding: 10px;
+  border-radius: 0 10px 10px 10px; /* 왼쪽 상단 부분은 radius를 주지 않음 */
+  max-width: 80%;
+  word-wrap: break-word;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  margin-left: 20px; /* 말풍선과 프로필 이미지 사이의 간격 조절 */
+  position: relative; /* 프로필 이미지를 절대 위치로 조정할 수 있도록 함 */
+  padding-left: 50px; /* 프로필 이미지 공간 확보 */
+  /* background-color: #ccc; */
+  /* border: 1px solid #bbb;  */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  /* border-radius: 10px;  */
+}
+
+.chat-message.user {
+  background: #5661f6;
+  border-radius: 10px 10px 0px 10px; /* 왼쪽 상단 부분은 radius를 주지 않음 */
+  color: white;
+  align-self: flex-end;
+  margin-right: 60px; /* 사용자 말풍선과 오른쪽 공간 확보 */
+}
+
+.chat-message .timestamp {
+  font-size: 0.8em;
+  color: #777;
+  position: absolute;
+  bottom: -22px;
+  right: 10px;
+}
+.profile-icon {
+  width: 15px;
+  height: 15px;
+  /* border-radius: 50%; */
+  position: absolute;
+  left: 10px; /* 말풍선 왼쪽에 이미지 배치 */
+  top: 10px; /* 상단에 이미지 배치 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.chat-input-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding-right: 40px; /* 이미지 공간 확보 */
+}
+
+.email-send-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.loading {
+  display: flex;
+  justify-content: flex-start; /* 스팬 요소들이 왼쪽 정렬되도록 설정 */
+  width: 60px;
+  position: relative;
+  height: 8px; /* 스팬 요소와 동일한 높이로 설정 */
+}
+
+.loading span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  position: absolute;
+  animation: loading 0.6s infinite alternate;
+}
+
+.loading span:nth-child(1) {
+  left: -45px; /* 첫 번째 span 요소를 왼쪽으로 20px 이동 */
+  animation-delay: 0s;
+}
+
+.loading span:nth-child(2) {
+  left: -25px; /* 두 번째 span 요소를 왼쪽으로 20px 이동 */
+  animation-delay: 0.15s;
+}
+
+.loading span:nth-child(3) {
+  left: -5px; /* 세 번째 span 요소를 왼쪽으로 20px 이동 */
+  animation-delay: 0.3s;
+}
+
+@keyframes loading {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* 추가된 CSS */
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-image {
+  width: 25px;
+  height: 25px;
+  /* border-radius: 50%; */
+  margin-right: 10px;
+  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.bot-status {
+  font-size: 14px;
+  color: #555;
+}
