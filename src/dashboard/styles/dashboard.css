@@ -9,6 +9,7 @@ p {
 .dashboard {
   background-color: #f5f6fa;
   height: 100%;
+  min-width: 1401px;
 }
 
 .dashboard-container {
@@ -136,37 +137,6 @@ p {
 .mention-amount .mention-title {
   font-size: 20px;
   font-weight: 700;
-}
-
-/*관련 뉴스*/
-.related-news {
-  width: 100%;
-  height: 396px;
-  background-color: white;
-  border-radius: 6px;
-  margin-top: 21px;
-  padding: 23px 25px 0px 25px;
-}
-
-.related-news > div:first-child {
-  display: flex;
-  justify-content: space-between;
-}
-
-.related-news > div:first-child > div {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.related-news .news-title {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.related-news .news-info {
-  color: #5a607f;
-  font-size: 14px;
 }
 
 /*right-part*/
