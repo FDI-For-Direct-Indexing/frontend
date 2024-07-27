@@ -42,7 +42,7 @@ p {
 }
 
 .stock-info .stock-name {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   margin: 0px 6px 3px 0px;
 }
@@ -57,7 +57,7 @@ p {
   cursor: pointer;
 }
 
-.stock-info .stock-code {
+.stock-info .stock-info-code {
   color: #5a607f;
   font-size: 14px;
   margin-bottom: 51px;
