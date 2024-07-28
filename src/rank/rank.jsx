@@ -1,25 +1,28 @@
-import React, { useState } from "react";
-import NavbarHeader from "../header/navbarHeader";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import ChatSummary from "./components/chatSummary";
-import CartSummary from "./components/cartSummary";
-import Clustering from "./components/clustering";
-import Parallel from "./components/parallelPlot/parallel";
-import RankList from "./components/weightgraph/rankList";
-import TitleLine from "./components/weightgraph/titleLine";
-import CustomGraph from "./components/weightgraph/customGraph";
-import { WeightProvider } from "../contexts/weightProvider";
-import { PlotProvider } from "../contexts/plotProvider";
-import DashedChart from "./components/parallelPlot/dashedChart";
+import React, { useState } from 'react'
+import NavbarHeader from '../header/navbarHeader';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ChatSummary from './components/chatSummary';
+import CartSummary from './components/cartSummary';
+import Clustering from './components/clustering';
+import RankList from './components/weightgraph/rankList';
+import TitleLine from './components/weightgraph/titleLine';
+import CustomGraph from './components/weightgraph/customGraph';
+import { WeightProvider } from '../contexts/weightProvider';
+import { PlotProvider } from '../contexts/plotProvider';
+import DashedChart from './components/parallelPlot/dashedChart';
+import { useParams } from 'react-router-dom';
 
 export default function Rank() {
+
+  const params = useParams();
+
   const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
 
   return (
-    <div className="pageBack">
-      <NavbarHeader />
+    <div className='pageBack'>
+      <NavbarHeader userId={params.userId} />
 
       <Container style={{ padding: "25px 5vw" }} fluid>
         <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
@@ -29,7 +32,7 @@ export default function Rank() {
                 <ChatSummary />
               </Col>
               <Col xs={4}>
-                <CartSummary />
+                <CartSummary userId={params.userId} />
               </Col>
             </Row>
             <Row>
