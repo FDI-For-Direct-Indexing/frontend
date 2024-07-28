@@ -14,15 +14,11 @@ import SEARCH from "../assets/image/search.svg";
 import USER from "../assets/image/header-user.svg";
 import CHATSYMBOL from "../assets/image/chat-symbol.svg";
 
-function NavbarHeader() {
+function NavbarHeader({ userId }) {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
   const includedResults = useIncludedResults(keyword);
-  const {
-    showIncludedResults,
-    handleKeyword,
-    handleIncludedResultClick,
-    wrapperRef,
-  } = useShowIncludedResults(setKeyword);
+  const { showIncludedResults, handleKeyword, handleIncludedResultClick, wrapperRef } =
+    useShowIncludedResults(setKeyword);
 
   const navigate = useNavigate();
 
@@ -59,7 +55,11 @@ function NavbarHeader() {
               {showIncludedResults && includedResults.length > 0 && (
                 <div className="includedSearchForm">
                   {includedResults.map((result, index) => (
-                    <a key={index} className="included-result" onClick={() => handleIncludedResultClick(result)} >
+                    <a
+                      key={index}
+                      className="included-result"
+                      onClick={() => handleIncludedResultClick(result)}
+                    >
                       {result}
                     </a>
                   ))}
@@ -68,21 +68,19 @@ function NavbarHeader() {
             </div>
           </Form>
 
-          <Nav.Link href="/" className="nav-right-link" >
-            <img src={CHATSYMBOL} alt="Chat" width="24" style={{ marginRight: '8px' }} />
+          <Nav.Link href="/" className="nav-right-link">
+            <img src={CHATSYMBOL} alt="Chat" width="24" style={{ marginRight: "8px" }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>새 채팅 시작하기</p>
           </Nav.Link>
-          <Nav.Link href="/cart" className="nav-right-link" >
-            <img src={CART} alt="Cart" width="24" style={{ marginRight: '8px' }} />
+          <Nav.Link href={`/cart/${userId}`} className="nav-right-link">
+            <img src={CART} alt="Cart" width="24" style={{ marginRight: "8px" }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>장바구니</p>
           </Nav.Link>
-          <Nav.Link href="/user" className="nav-right-link" >
-            <img src={USER} alt="User" width="24" style={{ marginRight: '8px' }} />
+          <Nav.Link href="/user" className="nav-right-link">
+            <img src={USER} alt="User" width="24" style={{ marginRight: "8px" }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>홍길동 님</p>
           </Nav.Link>
-
         </Navbar.Collapse>
-
       </Container>
     </Navbar>
   );
