@@ -7,18 +7,23 @@ export const useScatterData = () => {
   const [scatterData, setScatterData] = useState(null);
   const [loading, setLoading] = useState(true);
   const { stockList, sliderValues, setColorList } = useContext(WeightContext);
+  const [ parallelData, setParallelData ] = useState([]);
 
   useEffect(() => {
     if (stockList.length > 0) {
       getClusterData(stockList, sliderValues)
         .then((data) => {
-          setScatterData(data);
-          const colorList = data.map((cluster) => ({
+          const cluster = data.clusterResult;
+          setScatterData(cluster);
+          const colorList = cluster.map((cluster) => ({
             id: cluster.id,
             colorId: cluster.data.map((stock) => stock.id),
           }));
           setColorList(colorList);
           setLoading(false);
+
+          setParallelData(data.averageData);
+
         })
         .catch((error) => {
           console.error("Error fetching cluster data:", error);
@@ -27,7 +32,8 @@ export const useScatterData = () => {
     }
   }, [stockList]);
 
-  return { scatterData, loading };
+
+  return { scatterData, loading, parallelData };
 };
 
 export const useBlinkNode = () => {
