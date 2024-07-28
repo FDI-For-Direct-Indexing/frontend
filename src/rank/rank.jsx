@@ -20,12 +20,6 @@ export default function Rank() {
 
   const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
 
-
-  const recentCart = [
-    { name: '삼성전자', price: 84600 },
-    { name: '카카오', price: 146000 },
-  ];
-
   return (
     <div className='pageBack'>
       <NavbarHeader userId={params.userId} />
@@ -38,7 +32,7 @@ export default function Rank() {
                 <ChatSummary />
               </Col>
               <Col xs={4}>
-                <CartSummary recentCart={recentCart} />
+                <CartSummary userId={params.userId} />
               </Col>
             </Row>
             <Row>

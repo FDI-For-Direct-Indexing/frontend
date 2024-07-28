@@ -1,13 +1,14 @@
 import axios from "axios";
 import { API_URL } from "../../common/api";
 
-export const getUsername = (userId) => {
+export const getUsername = async (userId) => {
   return axios
-    .get(`${API_URL.LOCAL}/api/user/id=${userId}`)
+    .get(`${API_URL.LOCAL}/api/users/${userId}`)
     .then((response) => {
+      console.log(response.data);
       return response.data;
     })
     .catch((error) => {
-      console.error("Error header User: ", error);
+      console.error("Error at header => User: ", error);
     });
 }

@@ -10,6 +10,7 @@ export default function Clustering() {
   const { scatterData, loading } = useContext(PlotContext);
   const { setHoveredNode, RenderingNode } = useBlinkNode();
   const colorList = CLUSTER;
+  
   if (loading) {
     return <LoadingPage />;
   }
@@ -21,7 +22,7 @@ export default function Clustering() {
         <p style={{ color: DESCRIPTION, fontSize: '14px', paddingLeft: '10px', marginBottom: '2px' }}>그룹화된 정보를 확인해보자</p>
       </div>
 
-      <div style={{ padding: '0 30px', height: '31vh' }}>
+      <div style={{ padding: '0 30px', height: '270px' }}> 
         <ResponsiveScatterPlot
           data={scatterData}
           margin={{ top: 30, right: 10, bottom: 30, left: 10 }}

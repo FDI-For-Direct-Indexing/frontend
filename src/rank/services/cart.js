@@ -1,11 +1,11 @@
 import axios from "axios";
 import { API_URL } from "../../common/api";
 
-export const getRecentCart = () => {
+export const getRecentCart = (userId) => {
+  console.log(userId);
   return axios
-    .post(`${API_URL.LOCAL}/api/cart/recent`)
+    .get(`${API_URL.LOCAL}/api/cart/${userId}/recent`)
     .then((response) => {
-      console.log(" : ", response.data);
       return response.data;
     })
     .catch((error) => {

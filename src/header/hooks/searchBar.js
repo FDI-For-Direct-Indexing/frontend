@@ -33,7 +33,7 @@ export const useIncludedResults = (keyword) => {
 
   useEffect(() => {
     fetchIncludedSearchResult();
-  }, [debouncedQuery]);
+  }, [debouncedQuery, keyword]);
 
   return includedResults;
 };

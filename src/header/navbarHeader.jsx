@@ -28,8 +28,14 @@ function NavbarHeader({ userId }) {
   const [username, setUsername] = useState("게스트");
 
   useEffect(() => {
-    setUsername(getUsername(userId));
-  }, [username]);
+    const fetchUsername = async () => {
+      const name = await getUsername(userId);
+      console.log(name);
+      setUsername(name);
+    }
+
+    fetchUsername();
+  }, [userId]);
 
   const navigate = useNavigate();
 
@@ -49,7 +55,7 @@ function NavbarHeader({ userId }) {
         <Navbar.Collapse id="navbarScroll" className="ms-auto">
           <Form className="d-flex search-form" onSubmit={searchKeyword}>
             <div ref={wrapperRef} className="search-form-group">
-              <img src={SEARCH} alt="Search" width="24" />
+              <img src={SEARCH} alt="Search" style={{paddingLeft:'5px'}} />
               <Form.Control
                 type="search"
                 placeholder="종목명으로 검색하세요."

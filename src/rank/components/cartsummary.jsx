@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DESCRIPTION } from '../../constants/color';
+import { getRecentCart } from '../services/cart';
 
-export default function CartSummary({ recentCart }) {
+export default function CartSummary({ userId }) {
+  
+  const [recentCart, setRecentCart] = useState([]);
+
+  useEffect(() =>{
+      getRecentCart(userId)
+      .then((res) => {
+        setRecentCart(res);
+      })
+      .catch((error) => {
+        console.error("Error fetching recent cart data:", error);
+      });
+  }, [userId]);
 
   return (
     <div className='basicBox' style={{ height: '15vh' }}>

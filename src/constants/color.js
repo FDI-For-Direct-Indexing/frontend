@@ -37,16 +37,17 @@ export const CART_FULL = "#2678F3";
 
 // 주식 비율 지표
 const PROFIT = "#FF7676";
-const SAFETY = "#FFDD87";
-const GROWTH = "#91D600"
-const EFFICIENCY = "#87D4FF";
+const SAFETY = "#ffb876";
+const GROWTH = "#FFDD87";
+const EFFICIENCY = "#91D600"
+const MENTION = "#87D4FF";
 const SENTIMENT = "#C376FF";
 
-export const INDICATORS = [PROFIT, SAFETY, GROWTH, EFFICIENCY, SENTIMENT];
+export const INDICATORS = [PROFIT, SAFETY, GROWTH, EFFICIENCY, MENTION, SENTIMENT];
 
 // 클러스터링 그룹
 export const CLUSTER = [
-  "#000000",
+  "#666666",
   "#548CFF",
   "rgba(134, 204, 128, 1)",
   "rgba(255, 165, 0, 1)",
