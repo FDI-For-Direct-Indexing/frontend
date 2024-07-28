@@ -7,7 +7,7 @@ import upicon from "../../assets/image/up-icon.svg";
 import downicon from "../../assets/image/down-icon.svg";
 import ClickCart from "./clickCart";
 
-export default function StockInfo({ code }) {
+export default function StockInfo({ code, userId }) {
   const [name, setName] = useState("");
   const [stockCompare, setStockCompare] = useState(0);
   const [compare, setCompare] = useState(0);
