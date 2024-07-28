@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 
 export default function Dashboard() {
   const code = useParams().code;
+  const userId = useParams().userId;
   const [stockName, setStockName] = useState("");
 
   const types = ["profit", "stability", "growth", "efficiency"];
@@ -26,13 +27,13 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <NavbarHeader />
+      <NavbarHeader userId={userId} />
 
       <Container className="dashboard-container">
         <Row>
           <Col sm={4} className="left-part">
             <div>
-              <StockInfo code={code} />
+              <StockInfo code={code} userId={userId} />
               <EmotionRate code={code} />
             </div>
             <MentionAmount name={stockName} />
