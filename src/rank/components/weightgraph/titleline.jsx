@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/titleline.css"
+import "../../styles/titleline.css";
 
 export default function TitleLine() {
   return (
@@ -15,7 +15,7 @@ export default function TitleLine() {
         <span className="titleline-item graph">그래프</span>
         <span className="titleline-item cart">담기</span>
       </span>
-      <hr className="separator-line" style={{ borderColor: '#5A607F' }} />
+      <hr className="separator-line" style={{ borderColor: "#5A607F" }} />
     </div>
   );
 }

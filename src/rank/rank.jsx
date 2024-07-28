@@ -24,10 +24,10 @@ export default function Rank() {
     <div className='pageBack'>
       <NavbarHeader userId={params.userId} />
 
-      <Container style={{ padding: '25px 5vw' }} fluid >
+      <Container style={{ padding: "25px 5vw" }} fluid>
         <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
           <PlotProvider>
-            <Row style={{ marginBottom: '25px' }}>
+            <Row style={{ marginBottom: "25px" }}>
               <Col xs={8}>
                 <ChatSummary />
               </Col>
@@ -37,7 +37,7 @@ export default function Rank() {
             </Row>
             <Row>
               <Col xs={6}>
-                <div className='basicBox' style={{ height: '750px' }}>
+                <div className="basicBox" style={{ height: "750px" }}>
                   <CustomGraph title="맞춤형 순위" />
                   <TitleLine />
                   <RankList setGroupIdx={setHighlightGroupIdx} />
@@ -53,5 +53,5 @@ export default function Rank() {
         </WeightProvider>
       </Container>
     </div>
-  )
+  );
 }
