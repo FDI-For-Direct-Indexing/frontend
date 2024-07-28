@@ -71,7 +71,7 @@ export default function StockInfo({ code, userId }) {
       <div>
         <div>
           <p className="stock-name">{name}</p>
-          <ClickCart />
+          <ClickCart code={code} userId={userId} />
         </div>
         <img className="question-mark" src={questionmark} alt="questionmark" />
       </div>
