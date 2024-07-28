@@ -8,6 +8,7 @@ import ProgressPage from "./common/ui/progresspage";
 
 const router = createBrowserRouter([
   { path: "/", element: <ChatAi />, index: true },
+  { path: "/rank", element: <ChatAi />, index: true },
   { path: "/rank/:userId", element: <Rank />, index: true },
   { path: "/dashboard/:userId/:code", element: <Dashboard />, index: true },
   { path: "/cart/:userId", element: <Cart />, index: true },

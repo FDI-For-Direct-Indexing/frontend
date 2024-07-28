@@ -40,7 +40,8 @@ function NavbarHeader({ userId }) {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    navigate("/");
+    if (userId) navigate(`/rank/${userId}`);
+    else navigate("/");
   };
 
   return (
@@ -85,11 +86,11 @@ function NavbarHeader({ userId }) {
             <img src={CHATSYMBOL} alt="Chat" width="24" style={{ marginRight: '8px' }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>새 채팅 시작하기</p>
           </Nav.Link>
-          <Nav.Link href="/cart" className="nav-right-link" >
+          <Nav.Link href={`/cart/${userId}`} className="nav-right-link" >
             <img src={CART} alt="Cart" width="24" style={{ marginRight: '8px' }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>장바구니</p>
           </Nav.Link>
-          <Nav.Link href="/user" className="nav-right-link" >
+          <Nav.Link href={`/cart/${userId}`} className="nav-right-link" >
             <img src={USER} alt="User" width="24" style={{ marginRight: '8px' }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>{username} 님</p>
           </Nav.Link>

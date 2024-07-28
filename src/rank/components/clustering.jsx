@@ -3,18 +3,13 @@ import { ResponsiveScatterPlot } from "@nivo/scatterplot";
 import { BasicTooltip } from "@nivo/tooltip";
 import { useBlinkNode } from "../hooks/scatter";
 import { PlotContext } from "../../contexts/plotProvider";
-import LoadingPage from "../../common/ui/loadingpage";
 import { CLUSTER, DESCRIPTION } from "../../constants/color";
 
 export default function Clustering() {
-  const { scatterData, loading } = useContext(PlotContext);
-  const { setHoveredNode, RenderingNode } = useBlinkNode();
+  const { scatterData } = useContext(PlotContext);
+  const { setHoveredNode } = useBlinkNode();
   const colorList = CLUSTER;
   
-  if (loading) {
-    return <LoadingPage />;
-  }
-
   return (
     <div className='basicBox' style={{ width: '100%', height: '300px' }}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -36,7 +31,6 @@ export default function Clustering() {
           enableGridY={false}
           axisTop={null}
           axisRight={null}
-          // axisBottom={null}
           axisBottom={{
             orient: "bottom",
             tickSize: 5,
@@ -68,7 +62,6 @@ export default function Clustering() {
           }}
           onMouseEnter={(node) => setHoveredNode(node.id)}
           onMouseLeave={() => setHoveredNode(null)}
-          // nodeComponent={RenderingNode}
           tooltip={({ node }) => (
             <BasicTooltip value={node.data.name} color={node.color} enableChip />
           )}

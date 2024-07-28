@@ -13,6 +13,7 @@ import { WeightProvider } from '../contexts/weightProvider';
 import { PlotProvider } from '../contexts/plotProvider';
 import DashedChart from './components/parallelPlot/dashedChart';
 import { useParams } from 'react-router-dom';
+import Plots from './components/plots';
 
 export default function Rank() {
 
@@ -35,18 +36,16 @@ export default function Rank() {
                 <CartSummary userId={params.userId} />
               </Col>
             </Row>
-            <Row>
+            <Row >
               <Col xs={6}>
-                <div className="basicBox" style={{ height: "750px" }}>
+                <div className="basicBox" style={{ height: "820px" }}>
                   <CustomGraph title="맞춤형 순위" />
                   <TitleLine />
-                  <RankList setGroupIdx={setHighlightGroupIdx} />
+                  <RankList userId={params.userId} setGroupIdx={setHighlightGroupIdx} />
                 </div>
               </Col>
               <Col xs={6}>
-                <Clustering />
-                <DashedChart highlightGroupIdx={highlightGroupIdx} />
-                {/* <Parallel /> */}
+                <Plots highlightGroupIdx={highlightGroupIdx} />
               </Col>
             </Row>
           </PlotProvider>

@@ -28,7 +28,7 @@ export default function DiList({ userId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/cart?id=` + userId);
+        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+`/api/cart?id=` + userId);
         if (response.data) {
           setCartList([...response.data]);
         }
@@ -76,7 +76,7 @@ export default function DiList({ userId }) {
   const handleDeleteSelected = async () => {
     try {
       const deleteData = selectedList.map((code) => ({ code, userId }));
-      await axios.delete("http://localhost:4000/api/cart", { data: deleteData });
+      await axios.delete(process.env.REACT_APP_LOCAL_API_URL+"/api/cart", { data: deleteData });
 
       // 삭제된 항목들을 필터링하여 새로운 cartList를 설정
       const newCartList = cartList.filter((item) => !selectedList.includes(item.code));
