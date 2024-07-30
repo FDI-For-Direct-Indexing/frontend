@@ -42,11 +42,11 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             # Install NVM and Node.js on the remote server
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+            # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             nvm use 22.0.0
             npm install --force
             export NODE_OPTIONS="--max-old-space-size=4096"  # Node.js 메모리 제한을 4GB로 설정
             npm run build
-          script_timeout: 1200
+          script_timeout: 1800
