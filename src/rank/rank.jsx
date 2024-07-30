@@ -8,7 +8,7 @@ import CartSummary from "./components/cartSummary";
 import Clustering from "./components/clustering";
 import Parallel from "./components/parallelPlot/parallel";
 import RankList from "./components/weightgraph/rankList";
-import TitleLine from "./components/weightgraph/titleline";
+import TitleLine from "./components/weightgraph/titleLine";
 import CustomGraph from "./components/weightgraph/customGraph";
 import { WeightProvider } from "../contexts/weightProvider";
 import { PlotProvider } from "../contexts/plotProvider";
