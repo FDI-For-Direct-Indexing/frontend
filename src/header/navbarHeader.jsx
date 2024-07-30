@@ -18,12 +18,8 @@ import { getUsername } from "./apis/username";
 function NavbarHeader({ userId }) {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
   const includedResults = useIncludedResults(keyword);
-  const {
-    showIncludedResults,
-    handleKeyword,
-    handleIncludedResultClick,
-    wrapperRef,
-  } = useShowIncludedResults(setKeyword);
+  const { showIncludedResults, handleKeyword, handleIncludedResultClick, wrapperRef } =
+    useShowIncludedResults(setKeyword);
 
   const [username, setUsername] = useState("게스트");
 
@@ -73,7 +69,11 @@ function NavbarHeader({ userId }) {
               {showIncludedResults && includedResults.length > 0 && (
                 <div className="includedSearchForm">
                   {includedResults.map((result, index) => (
-                    <a key={index} className="included-result" onClick={() => handleIncludedResultClick(result)} >
+                    <a
+                      key={index}
+                      className="included-result"
+                      onClick={() => handleIncludedResultClick(result)}
+                    >
                       {result}
                     </a>
                   ))}
@@ -82,8 +82,8 @@ function NavbarHeader({ userId }) {
             </div>
           </Form>
 
-          <Nav.Link href="/" className="nav-right-link" >
-            <img src={CHATSYMBOL} alt="Chat" width="24" style={{ marginRight: '8px' }} />
+          <Nav.Link href="/" className="nav-right-link">
+            <img src={CHATSYMBOL} alt="Chat" width="24" style={{ marginRight: "8px" }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>새 채팅 시작하기</p>
           </Nav.Link>
           <Nav.Link href={`/cart/${userId}`} className="nav-right-link" >
@@ -94,9 +94,7 @@ function NavbarHeader({ userId }) {
             <img src={USER} alt="User" width="24" style={{ marginRight: '8px' }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>{username} 님</p>
           </Nav.Link>
-
         </Navbar.Collapse>
-
       </Container>
     </Navbar>
   );

@@ -33,7 +33,7 @@ export default function Dashboard() {
         <Row>
           <Col sm={4} className="left-part">
             <div>
-              <StockInfo code={code} />
+              <StockInfo code={code} userId={userId} />
               <EmotionRate code={code} />
             </div>
             <MentionAmount name={stockName} />

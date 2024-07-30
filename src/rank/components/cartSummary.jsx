@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { DESCRIPTION } from '../../constants/color';
-import { getRecentCart } from '../services/cart';
+import React, { useEffect, useState } from "react";
+import { DESCRIPTION } from "../../constants/color";
+import { getRecentCart } from "../services/cart";
 
 export default function CartSummary({ userId }) {
-  
   const [recentCart, setRecentCart] = useState([]);
 
-  useEffect(() =>{
-      getRecentCart(userId)
+  useEffect(() => {
+    getRecentCart(userId)
       .then((res) => {
         setRecentCart(res);
       })
@@ -17,10 +16,23 @@ export default function CartSummary({ userId }) {
   }, [userId]);
 
   return (
-    <div className='basicBox' style={{ height: '15vh' }}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-        <p style={{ fontSize: '18px', fontFamily: 'SpoqaHanSansNeo-Bold', textWrap: 'inherit', marginBottom: '5px' }}>다이렉트 인덱싱</p>
-        <p style={{ color: DESCRIPTION, fontSize: '14px', paddingLeft: '10px', marginBottom: '2px' }}>최근에 담은 종목</p>
+    <div className="basicBox" style={{ height: "15vh" }}>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+        <p
+          style={{
+            fontSize: "18px",
+            fontFamily: "SpoqaHanSansNeo-Bold",
+            textWrap: "inherit",
+            marginBottom: "5px",
+          }}
+        >
+          다이렉트 인덱싱
+        </p>
+        <p
+          style={{ color: DESCRIPTION, fontSize: "14px", paddingLeft: "10px", marginBottom: "2px" }}
+        >
+          최근에 담은 종목
+        </p>
       </div>
       <div>
         {
@@ -35,5 +47,5 @@ export default function CartSummary({ userId }) {
         }
       </div>
     </div>
-  )
+  );
 }
