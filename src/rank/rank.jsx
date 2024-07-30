@@ -5,13 +5,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ChatSummary from './components/chatSummary';
 import CartSummary from './components/cartSummary';
-import Clustering from './components/clustering';
 import RankList from './components/weightgraph/rankList';
 import TitleLine from './components/weightgraph/titleLine';
 import CustomGraph from './components/weightgraph/customGraph';
 import { WeightProvider } from '../contexts/weightProvider';
 import { PlotProvider } from '../contexts/plotProvider';
-import DashedChart from './components/parallelPlot/dashedChart';
 import { useParams } from 'react-router-dom';
 import Plots from './components/plots';
 
