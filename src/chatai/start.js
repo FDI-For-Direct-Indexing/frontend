@@ -16,7 +16,7 @@ export default function Start() {
   const handleSubmit = async () => {
     const userId = await signUp(textFieldValue);
     console.log(userId);
-    navigate(`/chat/${userId}`, { name: { textFieldValue } });
+    navigate(`/chat/${userId}`, { state: { name:textFieldValue } });
   };
 
   return (
