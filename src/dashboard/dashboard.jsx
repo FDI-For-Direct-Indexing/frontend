@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavbarHeader from "../header/navbarHeader";
 import { Container, Row, Col } from "react-bootstrap";
 import "./styles/dashboard.css";
@@ -12,21 +12,31 @@ import { useParams } from "react-router-dom";
 
 export default function Dashboard() {
   const code = useParams().code;
+  const userId = useParams().userId;
+  const [stockName, setStockName] = useState("");
 
   const types = ["profit", "stability", "growth", "efficiency"];
 
+  useEffect(() => {
+    fetch(`http://localhost:4000/api/stocksDetail/${code}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setStockName(data.name);
+      });
+  }, [code]);
+
   return (
     <div className="dashboard">
-      <NavbarHeader />
+      <NavbarHeader userId={userId} />
 
       <Container className="dashboard-container">
         <Row>
           <Col sm={4} className="left-part">
             <div>
-              <StockInfo code={code} />
+              <StockInfo code={code} userId={userId} />
               <EmotionRate code={code} />
             </div>
-            <MentionAmount />
+            <MentionAmount name={stockName} />
             <RelatedNews code={code} />
           </Col>
           <Col sm={8} className="right-part">

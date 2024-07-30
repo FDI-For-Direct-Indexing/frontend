@@ -1,0 +1,31 @@
+.modal-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.backtest-modal-stock-name {
+  width: 32%;
+}
+
+.date-info {
+  color: #999999;
+  font-size: 15px;
+}
+
+.date-picker {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0px;
+  align-items: center;
+}
+
+.date-picker > .date-title {
+  width: 23.5%;
+}
+
+.date-select {
+  border: 1px solid #d9e1ec;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+}

@@ -34,26 +34,27 @@
 
 .includedSearchForm {
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  top: 90%;
   z-index: 11;
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-radius: 0 0 10px 10px;
+  border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   max-height: 150px;
   overflow-y: auto;
+  width: 19%;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .included-result {
   text-decoration: none;
-  color: black;
-  padding: 5px 0;
+  padding: 5px;
   cursor: pointer;
+  font-family: "SpoqaHanSansNeo-Regular";
+  color: #414141;
 }
 
 .included-result:hover {
@@ -85,8 +86,9 @@
 .search-input {
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  /* padding: 8px; */
+  padding: 5px 0;
   flex: 1;
+  font-family: "SpoqaHanSansNeo-Regular";
 }
 
 .search-input:focus {

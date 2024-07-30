@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css);
+
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+
+.apexcharts-menu-icon {
+  display: none;
+}
+
+.mention-header {
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.mention-info {
+  font-size: 13px;
+  color: #5a607f;
+}

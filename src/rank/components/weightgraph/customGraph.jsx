@@ -10,7 +10,8 @@ function CustomGraph({ title }) {
     { name: "안정성", color: INDICATORS[1], percentage: sliderValues[1] },
     { name: "성장성", color: INDICATORS[2], percentage: sliderValues[2] },
     { name: "활동성", color: INDICATORS[3], percentage: sliderValues[3] },
-    { name: "감정지수", color: INDICATORS[4], percentage: sliderValues[4] },
+    { name: "언급량", color: INDICATORS[4], percentage: sliderValues[4] },
+    { name: "감정지수", color: INDICATORS[5], percentage: sliderValues[5] },
   ]);
 
   const graphContainerRef = useRef(null);
@@ -59,11 +60,11 @@ function CustomGraph({ title }) {
     setSections(updatedSections);
     // setSliderValues(updatedSections.map((section) => section.percentage));
 
-    // // 추가된 부분: sliderValues 상태 확인
-    // console.log(
-    //   "Updated Slider Values: ",
-    //   updatedSections.map((section) => section.percentage)
-    // );
+    // 추가된 부분: sliderValues 상태 확인
+    console.log(
+      "Updated Slider Values: ",
+      updatedSections.map((section) => section.percentage)
+    );
   };
 
   const startDrag = (index) => {
@@ -105,9 +106,13 @@ function CustomGraph({ title }) {
             <div className="productivity-color"></div>
             <p>활동성</p>
           </div>
-          <div className="ogong">
-            <div className="ogong-color"></div>
-            <p>오공 지수</p>
+          <div className="mention">
+            <div className="mention-color"></div>
+            <p>언급량</p>
+          </div>
+          <div className="sentiment">
+            <div className="sentiment-color"></div>
+            <p>감정 지수</p>
           </div>
         </div>
       </div>
@@ -119,10 +124,12 @@ function CustomGraph({ title }) {
             style={{
               background: section.color,
               width: `${section.percentage}%`,
-              borderRadius: index === 0 ? "10px 0 0 10px" : index === 4 ? "0 10px 10px 0" : "0",
+              borderRadius: index === 0 ? "10px 0 0 10px" : index === 5 ? "0 10px 10px 0" : "0",
             }}
           >
-            <p style={{margin:0, fontFamily:'SpoqaHanSansNeo-Medium'}}>{section.percentage.toFixed(0)}%</p>
+            <p style={{margin:0, fontFamily:'SpoqaHanSansNeo-Medium'}}>
+              {section.percentage.toFixed(0)}%
+            </p>
             {index < sections.length - 1 && (
               <div className="handle" onMouseDown={() => startDrag(index)} />
             )}
