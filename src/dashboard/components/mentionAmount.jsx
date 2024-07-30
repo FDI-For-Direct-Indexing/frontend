@@ -10,7 +10,7 @@ export default function MentionAmount({ name }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`http://localhost:4000/api/trend?keywords=${name}`);
+        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+`/api/trend?keywords=${name}`);
         const data = response.data;
         const periods = data.map((item) => item.period);
         const ratios = data.map((item) => item.ratio);

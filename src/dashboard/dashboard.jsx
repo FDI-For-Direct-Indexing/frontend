@@ -18,7 +18,7 @@ export default function Dashboard() {
   const types = ["profit", "stability", "growth", "efficiency"];
 
   useEffect(() => {
-    fetch(`http://localhost:4000/api/stocksDetail/${code}`)
+    fetch(process.env.REACT_APP_LOCAL_API_URL+`/api/stocksDetail/${code}`)
       .then((res) => res.json())
       .then((data) => {
         setStockName(data.name);
