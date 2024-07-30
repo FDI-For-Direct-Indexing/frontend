@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useParams } from "react";
 import NavbarHeader from "../header/navbarHeader";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -15,13 +15,12 @@ import { PlotProvider } from "../contexts/plotProvider";
 import DashedChart from "./components/parallelPlot/dashedChart";
 
 export default function Rank() {
-
   const params = useParams();
 
   const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
 
   return (
-    <div className='pageBack'>
+    <div className="pageBack">
       <NavbarHeader userId={params.userId} />
 
       <Container style={{ padding: "25px 5vw" }} fluid>
