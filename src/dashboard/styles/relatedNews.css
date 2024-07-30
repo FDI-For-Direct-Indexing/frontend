@@ -1,0 +1,81 @@
+/*관련 뉴스*/
+.related-news {
+  width: 100%;
+  height: 396px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 21px;
+  padding: 23px 25px 0px 25px;
+}
+
+.related-news-header {
+  margin-bottom: 10px;
+}
+
+.related-news > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.related-news > div:first-child > div {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.related-news .related-news-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.related-news .news-info {
+  color: #5a607f;
+  font-size: 14px;
+}
+
+/*news-list*/
+.news-list > table tr {
+  border-bottom: 1px solid #d7dbec;
+}
+
+.news-list > table thead {
+  color: #5a607f;
+}
+
+.news-list {
+  font-size: 14px;
+  color: #131523;
+}
+
+.news-company {
+  width: 20%;
+}
+
+.news-title {
+  width: 60%;
+}
+
+.news-title-content {
+  padding: 3px 0px 2px 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.9em;
+}
+
+.news-title-content a {
+  text-decoration: none;
+  color: #131523;
+}
+
+.news-date {
+  width: 20%;
+  padding-left: 15px;
+}
+
+.news-date-content {
+  padding-left: 15px;
+}

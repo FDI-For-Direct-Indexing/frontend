@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -13,8 +13,9 @@ import CART from "../assets/image/cart.svg";
 import SEARCH from "../assets/image/search.svg";
 import USER from "../assets/image/header-user.svg";
 import CHATSYMBOL from "../assets/image/chat-symbol.svg";
+import { getUsername } from "./apis/username";
 
-function NavbarHeader() {
+function NavbarHeader({ userId }) {
   const { keyword, setKeyword, searchKeyword } = useKeyword();
   const includedResults = useIncludedResults(keyword);
   const {
@@ -23,6 +24,18 @@ function NavbarHeader() {
     handleIncludedResultClick,
     wrapperRef,
   } = useShowIncludedResults(setKeyword);
+
+  const [username, setUsername] = useState("게스트");
+
+  useEffect(() => {
+    const fetchUsername = async () => {
+      const name = await getUsername(userId);
+      console.log(name);
+      setUsername(name);
+    }
+
+    fetchUsername();
+  }, [userId]);
 
   const navigate = useNavigate();
 
@@ -42,7 +55,7 @@ function NavbarHeader() {
         <Navbar.Collapse id="navbarScroll" className="ms-auto">
           <Form className="d-flex search-form" onSubmit={searchKeyword}>
             <div ref={wrapperRef} className="search-form-group">
-              <img src={SEARCH} alt="Search" width="24" />
+              <img src={SEARCH} alt="Search" style={{paddingLeft:'5px'}} />
               <Form.Control
                 type="search"
                 placeholder="종목명으로 검색하세요."
@@ -78,7 +91,7 @@ function NavbarHeader() {
           </Nav.Link>
           <Nav.Link href="/user" className="nav-right-link" >
             <img src={USER} alt="User" width="24" style={{ marginRight: '8px' }} />
-            <p style={{ margin: 0, color: DESCRIPTION }}>홍길동 님</p>
+            <p style={{ margin: 0, color: DESCRIPTION }}>{username} 님</p>
           </Nav.Link>
 
         </Navbar.Collapse>

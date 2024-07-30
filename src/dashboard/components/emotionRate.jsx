@@ -29,7 +29,7 @@ export default function EmotionRate({ code }) {
         <p className="emotion-title">감성지수</p>
         <img className="question-mark" src={whitequestionmark} alt="questionmark" fill="white" />
       </div>
-      <div className="progress-bar" style={{ width: 102, height: 102 }}>
+      <div className="progress-bar">
         <CircularProgressbar
           value={emotionRate}
           text={`${emotionRate}`}

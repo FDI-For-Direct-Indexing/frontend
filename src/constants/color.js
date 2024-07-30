@@ -37,16 +37,17 @@ export const CART_FULL = "#2678F3";
 
 // 주식 비율 지표
 const PROFIT = "#FF7676";
-const SAFETY = "#FFDD87";
-const GROWTH = "#91D600";
-const EFFICIENCY = "#87D4FF";
+const SAFETY = "#ffb876";
+const GROWTH = "#FFDD87";
+const EFFICIENCY = "#91D600"
+const MENTION = "#87D4FF";
 const SENTIMENT = "#C376FF";
 
-export const INDICATORS = [PROFIT, SAFETY, GROWTH, EFFICIENCY, SENTIMENT];
+export const INDICATORS = [PROFIT, SAFETY, GROWTH, EFFICIENCY, MENTION, SENTIMENT];
 
 // 클러스터링 그룹
 export const CLUSTER = [
-  "#000000",
+  "#666666",
   "#548CFF",
   "rgba(134, 204, 128, 1)",
   "rgba(255, 165, 0, 1)",
@@ -75,25 +76,26 @@ const DISTRIBUTION = { color: "#D9E4FF", font: "#1E5EFF" }; // 유통업
 const PRECISION_MEDICINE = { color: "#C9D1FF", font: "#0019F9" }; // 의료정밀
 const ELECTRIC_GAS = { color: "#E6E9F4", font: "#5A607F" }; // 전기가스업
 const STEEL = { color: "#E1C9FF", font: "#8B00F9" }; // 철강금속
-const MACHINE = { color: "#E4E4E4", font: "#808080" }; // 기계
+const MACHINE = { color: "#E4E4E4", font: "#808080" };  // 기계
 
 export const colorMapping = {
-  전기전자: ELECTRIC,
-  서비스업: SERVICE,
-  기타금융: OTHER_FINANCE,
-  화학: CHEMISTRY,
-  건설업: CONSTRUCTION,
-  통신업: TELECOMMUNICATION,
-  의약품: MEDICINE,
-  음식료품: FOOD,
-  비금속광물: MANUFACTURE,
-  기타제조업: OTEHR_MANUFACTURE,
-  섬유의복: CLOTHING,
-  운수장비: TRANSPORTATION,
-  운수창고업: WAREHOUSING,
-  유통업: DISTRIBUTION,
-  의료정밀: PRECISION_MEDICINE,
-  전기가스업: ELECTRIC_GAS,
-  철강금속: STEEL,
-  기계: MACHINE,
+  "전기전자": ELECTRIC,
+  "서비스업": SERVICE,
+  "기타금융": OTHER_FINANCE,
+  "화학": CHEMISTRY,
+  "건설업": CONSTRUCTION,
+  "통신업": TELECOMMUNICATION,
+  "의약품": MEDICINE,
+  "음식료품": FOOD,
+  "비금속광물": MANUFACTURE,
+  "기타제조업": OTEHR_MANUFACTURE,
+  "섬유의복": CLOTHING,
+  "운수장비": TRANSPORTATION,
+  "운수창고업": WAREHOUSING,
+  "유통업": DISTRIBUTION,
+  "의료정밀": PRECISION_MEDICINE,
+  "전기가스업": ELECTRIC_GAS,
+  "철강금속": STEEL,
+  "기계": MACHINE
 };
+

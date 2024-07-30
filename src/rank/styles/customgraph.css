@@ -42,25 +42,32 @@ h3 {
 .stability-color {
   width: 13px;
   height: 13px;
-  background-color: #ffdd87;
+  background-color: #ffb876;
   border-radius: 100%;
 }
 
 .activity-color {
   width: 13px;
   height: 13px;
-  background-color: #91d600;
+  background-color: #ffdd87;
   border-radius: 100%;
 }
 
 .productivity-color {
   width: 13px;
   height: 13px;
+  background-color: #91d600;
+  border-radius: 100%;
+}
+
+.mention-color {
+  width: 13px;
+  height: 13px;
   background-color: #87d4ff;
   border-radius: 100%;
 }
 
-.ogong-color {
+.sentiment-color {
   width: 13px;
   height: 13px;
   background-color: #c376ff;

@@ -1,60 +1,35 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import ApexCharts from 'apexcharts';
-import { DESCRIPTION, CLUSTER } from "../../../constants/color";
+import { CLUSTER, DESCRIPTION } from "../../../constants/color";
+import { PlotContext } from "../../../contexts/plotProvider";
 
 export default function DashedChart({ highlightGroupIdx }) {
-  // const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
+  const { parallelData } = useContext(PlotContext);
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
+  const colorList = CLUSTER;
   const originalStroke = [5, 5, 5, 5, 5];
   const originalDashArray = [0, 0, 0, 0, 0];
-
-  const sixRates = [
-    {
-      name: "group1",
-      data: [45, 52, 38, 24, 33, 26],
-      color: CLUSTER[0]
-    },
-    {
-      name: "group2",
-      data: [35, 41, 62, 42, 13, 18],
-      color: CLUSTER[1]
-    },
-    {
-      name: 'group3',
-      data: [87, 57, 74, 99, 75, 38],
-      color: CLUSTER[2]
-    },
-    {
-      name: "group4",
-      data: [75, 31, 92, 32, 83, 8],
-      color: CLUSTER[3]
-    },
-    {
-      name: "group5",
-      data: [5, 21, 32, 22, 73, 98],
-      color: CLUSTER[4]
-    },
-  ];
 
   const getUpdatedSeries = () => {
     if (highlightGroupIdx === null) {
       // 강조가 해제된 상태: 원래 시리즈
-      return sixRates.map((series, index) => ({
+      return parallelData.map((series, index) => ({
         ...series,
-        color: series.color, // 원래 색상
+        name: `그룹 ${index + 1}`,
+        color: colorList[index], // 원래 색상
         strokeWidth: originalStroke[index],
         opacity: 1,
         dashArray: originalDashArray[index]
       }));
     } else {
-      console.log(highlightGroupIdx);
-      return sixRates.map((series, index) => ({
-        name: series.name,
+      console.log("체크", highlightGroupIdx);
+      return parallelData.map((series, index) => ({
+        name: series.id,
         data: series.data,
-        color: highlightGroupIdx.includes(index) ? series.color : '#CCCCCC',
-        strokeWidth: highlightGroupIdx.includes(index) ? 8 : originalStroke[index],
+        color: highlightGroupIdx.includes(index) ? colorList[index] : '#CCCCCC',
+        strokeWidth: highlightGroupIdx.includes(index) ? 6 : originalStroke[index],
         opacity: highlightGroupIdx.includes(index) ? 1 : 0.5,
         dashArray: originalDashArray[index]
       }));
@@ -130,7 +105,12 @@ export default function DashedChart({ highlightGroupIdx }) {
         }
       },
       yaxis: {
+        min: 0, // y축 최소값 설정
+        max: 100, // y축 최대값 설정
         labels: {
+          formatter: function (val) {
+            return Math.round(val);
+          },  
           style: {
             fontFamily: 'SpoqaHanSansNeo-Bold' // Y축 라벨 폰트 설정
           }
@@ -212,14 +192,6 @@ export default function DashedChart({ highlightGroupIdx }) {
         <p style={{ color: DESCRIPTION, fontSize: '14px', paddingLeft: '10px', marginBottom: '2px' }}>그룹의 평균 값을 확인해보자</p>
       </div>
       <div id="chart" ref={chartRef}></div>
-      {/* <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-            <button onClick={() => setHighlightGroupIdx(0)}>그룹 1 강조</button>
-            <button onClick={() => setHighlightGroupIdx(1)}>그룹 2 강조</button>
-            <button onClick={() => setHighlightGroupIdx(2)}>그룹 3 강조</button>
-            <button onClick={() => setHighlightGroupIdx(3)}>그룹 4 강조</button>
-            <button onClick={() => setHighlightGroupIdx(4)}>그룹 5 강조</button>
-            <button onClick={() => setHighlightGroupIdx(null)}>강조 해제</button>
-        </div> */}
     </div>
   )
 }
