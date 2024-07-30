@@ -12,7 +12,7 @@ import LOGO from "../assets/image/header-logo.svg";
 import CART from "../assets/image/cart.svg";
 import SEARCH from "../assets/image/search.svg";
 import USER from "../assets/image/header-user.svg";
-import CHATSYMBOL from "../assets/image/chat-symbol.svg";
+import CHATSYMBOL from "../assets/image/chat-symbol.png";
 import { getUsername } from "./apis/username";
 
 function NavbarHeader({ userId }) {
@@ -26,7 +26,6 @@ function NavbarHeader({ userId }) {
   useEffect(() => {
     const fetchUsername = async () => {
       const name = await getUsername(userId);
-      console.log(name);
       setUsername(name);
     }
 
@@ -83,7 +82,7 @@ function NavbarHeader({ userId }) {
           </Form>
 
           <Nav.Link href="/" className="nav-right-link">
-            <img src={CHATSYMBOL} alt="Chat" width="24" style={{ marginRight: "8px" }} />
+            <img src={CHATSYMBOL} alt="Chat" width="18" style={{ marginRight: "8px" }} />
             <p style={{ margin: 0, color: DESCRIPTION }}>새 채팅 시작하기</p>
           </Nav.Link>
           <Nav.Link href={`/cart/${userId}`} className="nav-right-link" >
