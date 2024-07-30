@@ -9,7 +9,7 @@ export default function Cart() {
 
   return (
     <div className="cart-component">
-      <NavbarHeader />
+      <NavbarHeader userId={userId} />
       <div className="cart-container">
         <p className="cart-title">다이렉트 인덱싱 장바구니</p>
         <div className="cart-list">
