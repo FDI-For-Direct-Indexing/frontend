@@ -15,11 +15,14 @@ import { PlotProvider } from "../contexts/plotProvider";
 import DashedChart from "./components/parallelPlot/dashedChart";
 
 export default function Rank() {
+
+  const params = useParams();
+
   const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
 
   return (
-    <div className="pageBack">
-      <NavbarHeader />
+    <div className='pageBack'>
+      <NavbarHeader userId={params.userId} />
 
       <Container style={{ padding: "25px 5vw" }} fluid>
         <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
@@ -29,7 +32,7 @@ export default function Rank() {
                 <ChatSummary />
               </Col>
               <Col xs={4}>
-                <CartSummary />
+                <CartSummary userId={params.userId} />
               </Col>
             </Row>
             <Row>

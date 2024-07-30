@@ -5,7 +5,6 @@ import Rank from "./rank/rank";
 import Dashboard from "./dashboard/dashboard";
 import Cart from "./cart/cart";
 import ProgressPage from "./common/ui/progresspage";
-import DashedChart from "./rank/components/parallelPlot/dashedChart";
 
 const router = createBrowserRouter([
   { path: "/", element: <ChatAi />, index: true },

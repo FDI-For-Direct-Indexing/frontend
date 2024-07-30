@@ -10,9 +10,9 @@ export default function Parallel() {
     console.log("<< Parallel Data Transformed: ", parallelData);
   }, [parallelData]);
 
-  const handleButtonClick = () => {
-    setShowParallel(false);
-  };
+  // const handleButtonClick = () => {
+  //   setShowParallel(false);
+  // };
 
   return (
     <div className='basicBox'>
