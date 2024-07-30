@@ -7,7 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import SEARCH from "../../assets/image/search.svg";
 import trashCan from "../../assets/image/trashCan.png";
 import Form from "react-bootstrap/Form";
-
+import Button from "react-bootstrap/Button";
 import {
   useKeyword,
   useIncludedResults,
@@ -28,7 +28,7 @@ export default function DiList({ userId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/cart?id=` + userId);
+        const response = await axios.get(`http://localhost:4000/api/cart?id=${userId}`);
         if (response.data) {
           setCartList([...response.data]);
         }
@@ -74,11 +74,14 @@ export default function DiList({ userId }) {
   };
 
   const handleDeleteSelected = async () => {
+    if (selectedList.length === 0) {
+      setShowAlert(true);
+      return;
+    }
     try {
       const deleteData = selectedList.map((code) => ({ code, userId }));
       await axios.delete("http://localhost:4000/api/cart", { data: deleteData });
 
-      // 삭제된 항목들을 필터링하여 새로운 cartList를 설정
       const newCartList = cartList.filter((item) => !selectedList.includes(item.code));
       setCartList(newCartList);
       setSelectedList([]);
@@ -130,13 +133,21 @@ export default function DiList({ userId }) {
             </div>
           </Form>
         </div>
-        <img
-          className="trash-can"
-          src={trashCan}
-          alt="trashCan"
-          width="24"
-          onClick={handleDeleteSelected}
-        />
+        <div className="cart-buttons">
+          <img
+            className="backtest-button"
+            src={Backtest}
+            alt="Backtest"
+            width="95"
+          />
+          <img
+            className="trash-can"
+            src={trashCan}
+            alt="trashCan"
+            width="24"
+            onClick={handleDeleteSelected}
+          />
+        </div>
       </div>
       <div className="table-container">
         <table className="table-auto">
@@ -164,13 +175,13 @@ export default function DiList({ userId }) {
                 </td>
                 <td>
                   <div className="cart-sector">
-                    <SectionChip sector="에너지" />
+                    <SectionChip sector={item.sector} />
                   </div>
                 </td>
                 <td>
                   <div>
                     <a
-                      href={`/dashboard/` + item.code}
+                      href={`/dashboard/` + userId + `/` + item.code}
                       style={{ textDecorationLine: "none", color: "#5a607f" }}
                     >
                       {item.name}
@@ -180,7 +191,7 @@ export default function DiList({ userId }) {
                 <td>
                   <div>
                     <a
-                      href={`/dashboard` + item.code}
+                      href={`/dashboard/` + userId + `/` + item.code}
                       style={{ textDecorationLine: "none", color: "#5a607f" }}
                     >
                       {item.code}
