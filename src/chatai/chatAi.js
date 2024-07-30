@@ -94,13 +94,13 @@ export default function Chatai() {
           } else {
             addTypingMessage("응답을 받지 못했습니다. 다시 시도해주세요.");
           }
-          setTurn(turn + 1); // 대화 턴 증가
+          setTurn(turn + 1);
         } else {
-          setLoading(false); // 에러 시에도 로딩 상태를 false로 설정
+          setLoading(false);
           addTypingMessage(`Error: ${response.statusText}`);
         }
       } catch (error) {
-        setLoading(false); // 에러 시에도 로딩 상태를 false로 설정
+        setLoading(false);
         addTypingMessage(`Error: ${error.message}`);
       }
     }
@@ -138,7 +138,7 @@ export default function Chatai() {
           return updatedMessages;
         });
       }
-    }, 100); // 타이핑 속도를 조절할 수 있습니다.
+    }, 100);
   };
 
   const formatTimestamp = (timestamp) => {
