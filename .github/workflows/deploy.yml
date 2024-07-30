@@ -49,3 +49,4 @@ jobs:
             npm install --force
             export NODE_OPTIONS="--max-old-space-size=4096"  # Node.js 메모리 제한을 4GB로 설정
             npm run build
+          script_timeout: 1200
