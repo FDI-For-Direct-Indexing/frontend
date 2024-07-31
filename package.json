@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.4",
     "@nivo/parallel-coordinates": "^0.87.0",
     "@nivo/scatterplot": "^0.87.0",
@@ -38,8 +39,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "nodemon index.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

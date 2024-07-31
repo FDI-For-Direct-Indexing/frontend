@@ -14,8 +14,7 @@ export const useKeyword = (userId) => {
       alert("해당 종목을 찾을 수 없습니다.");
       return;
     }
-    console.log("code: ", searchResult.code);
-    navigate(`/dashboard/${userId}/${searchResult.code}`); // 추후 router로 페이지 이동 작성
+    navigate(`/dashboard/${userId}/${searchResult.code}`);
   };
 
   return { keyword, setKeyword, searchKeyword };
@@ -27,7 +26,6 @@ export const useIncludedResults = (keyword) => {
 
   async function fetchIncludedSearchResult() {
     const includedSearchResult = await getIncludedSearchResult(keyword);
-    console.log(includedSearchResult);
     setIncludedResults(includedSearchResult || []);
   }
 
