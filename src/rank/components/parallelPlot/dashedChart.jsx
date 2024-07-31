@@ -14,17 +14,15 @@ export default function DashedChart({ highlightGroupIdx }) {
 
   const getUpdatedSeries = () => {
     if (highlightGroupIdx === null) {
-      // 강조가 해제된 상태: 원래 시리즈
       return parallelData.map((series, index) => ({
         ...series,
         name: `그룹 ${index + 1}`,
-        color: colorList[index], // 원래 색상
+        color: colorList[index],
         strokeWidth: originalStroke[index],
         opacity: 1,
         dashArray: originalDashArray[index]
       }));
     } else {
-      console.log("체크", highlightGroupIdx);
       return parallelData.map((series, index) => ({
         name: `그룹 ${index + 1}`,
         data: series.data,
@@ -69,14 +67,10 @@ export default function DashedChart({ highlightGroupIdx }) {
         }
       },
       stroke: {
-        width: originalStroke, // [5, 7, 5, 7, 7],
+        width: originalStroke,
         curve: 'straight',
-        dashArray: originalDashArray // [5, 8, 0, 2, 1]
+        dashArray: originalDashArray
       },
-      // title: {
-      //   text: 'Page Statistics',
-      //   align: 'left'
-      // },
       legend: {
         tooltipHoverFormatter: function (val, opts) {
           return val + ' : <strong>' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + '</strong>'

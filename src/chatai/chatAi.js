@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./chatAi.css";
-import fdiImage from "./fdi.jpg"; // FDI 이미지 파일 import
-import Email_Send from "./Email_Send.jpg"; // 이메일 전송 아이콘 이미지 파일 import
-import profileImage from "../assets/image/chat-symbol.png"; // 새로 만든 귀여운 프로필 이미지 파일 import
+import fdiImage from "./fdi.jpg";
+import Email_Send from "./Email_Send.jpg";
+import profileImage from "../assets/image/chat-symbol.png";
 import { useLocation } from "react-router-dom";
 
 export default function Chatai() {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const initialMessages = [
     `안녕하세요 ${state.name}님, AI 다이렉트 인덱싱 서비스 FDI입니다. 당신에게 맞는 종목을 찾을 수 있게 도와드릴게요!`,
     "주식투자를 할 때 어려움 점이 있나요?",
@@ -101,18 +101,18 @@ export default function Chatai() {
 
         if (response.ok) {
           const data = await response.json();
-          setLoading(false); // 응답이 온 순간 로딩 상태를 false로 설정
+          setLoading(false);
           if (data.content) {
             addTypingMessage(data.content);
           } else {
             addTypingMessage("응답을 받지 못했습니다. 다시 시도해주세요.");
           }
         } else {
-          setLoading(false); // 에러 시에도 로딩 상태를 false로 설정
+          setLoading(false);
           addTypingMessage(`Error: ${response.statusText}`);
         }
       } catch (error) {
-        setLoading(false); // 에러 시에도 로딩 상태를 false로 설정
+        setLoading(false);
         addTypingMessage(`Error: ${error.message}`);
       }
     }

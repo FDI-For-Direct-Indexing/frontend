@@ -13,7 +13,7 @@ const handleLegendClick = (legend, highlightedGroup, setHighlightedGroup) => {
 };
 
 export const ParallelCoordinate = ({ data }) => {
-  const [highlightedGroup, setHighlightedGroup] = useState(null); // 상태 추가
+  const [highlightedGroup, setHighlightedGroup] = useState(null);
 
   return (
     data && (
@@ -21,8 +21,8 @@ export const ParallelCoordinate = ({ data }) => {
         isInteractive
         data={data}
         variables={[
-          { 
-            group: 0, id: "수익성", value: "수익성",  ticksPosition: "after",
+          {
+            group: 0, id: "수익성", value: "수익성", ticksPosition: "after",
             legendPosition: "start", legendOffset: 30, min: 0, max: 100,
           },
           {
@@ -38,9 +38,9 @@ export const ParallelCoordinate = ({ data }) => {
             legendPosition: "start", legendOffset: -10, min: 0, max: 100,
           },
           {
-            group: 4, id: "오공지수", value: "오공지수", ticksPosition: "after", 
+            group: 4, id: "오공지수", value: "오공지수", ticksPosition: "after",
             legendPosition: "start", legendOffset: -10, min: 0, max: 100,
-          }, 
+          },
         ]}
         groupBy="group"
         margin={{ top: 5, right: 25, bottom: 23, left: 0 }}

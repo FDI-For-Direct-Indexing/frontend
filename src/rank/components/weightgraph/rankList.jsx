@@ -36,8 +36,6 @@ const RankList = ({ userId, setGroupIdx }) => {
           .attr("width", "100%")
           .attr("minWidth", "600px")
           .attr("height", weightData.length * 100);
-        // .attr("height", weightData.length * 50 + 50); // 데이터 길이에 따라 높이 조정
-        // 군집 색상 바로;
 
         if (data != undefined && data.length > 0) {
           matchColor().then((d) => {
@@ -68,7 +66,6 @@ const RankList = ({ userId, setGroupIdx }) => {
         groupClasses.forEach((groupClass) => {
           update(d, svg, ...sliderValues, groupClass);
         });
-        // return update(d, svg, ...sliderValues, "group1");
       });
     }
   }, [colorList]);
@@ -168,18 +165,16 @@ const RankList = ({ userId, setGroupIdx }) => {
       .attr("transform", (d, i) => `translate(0, ${i * height} + 20)`)
       .attr("data-group-class", groupClass) // 각 row에 groupClass를 저장
       .on("click", (event, d) => {
-        navigate(`/dashboard/${userId}/${d.id}`); // 추후 router로 페이지 이동 작성
+        navigate(`/dashboard/${userId}/${d.id}`);
       })
       .on("mouseenter", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#f0f0f0");
         const currentGroupClass = d3.select(this).attr("data-group-class");
-        //console.log("mouse enter", currentGroupClass);
-        //setGroupIdx(currentGroupClass); // 클릭한 기업의 group idx를 저장 => highlight
+        //setGroupIdx(currentGroupClass); 
       })
       .on("mouseleave", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#ffffff");
-        //console.log("mouse leave, ", d3.select(this).attr("data-group-class"));
-        //setGroupIdx(null); // 클릭한 기업의 id를 저장 => highlight off
+        //setGroupIdx(null);
       });
 
     rowsEnter
@@ -197,7 +192,7 @@ const RankList = ({ userId, setGroupIdx }) => {
       .attr("y2", height - 1)
       .attr("stroke", "#000000")
       .attr("stroke-width", 1)
-      .attr("stroke-opacity", 0.15); // 투명도 설정
+      .attr("stroke-opacity", 0.15);
 
     rowsEnter // 순위
       .append("text")
@@ -212,9 +207,9 @@ const RankList = ({ userId, setGroupIdx }) => {
     rowsEnter // 군집색상
       .append("circle")
       .attr("class", "color-type")
-      .attr("cx", 55) // x 좌표, rect의 x 속성에서 반지름을 더한 값으로 설정
-      .attr("cy", height / 2) // y 좌표, rect의 y와 height를 이용하여 중앙에 위치하도록 설정
-      .attr("r", (height - 20) / 2) // 반지름, rect의 height를 사용하여 원의 크기 설정
+      .attr("cx", 55)
+      .attr("cy", height / 2)
+      .attr("r", (height - 20) / 2)
       .attr("fill", (d) => d.color);
 
     rowsEnter // 종목코드
@@ -243,7 +238,7 @@ const RankList = ({ userId, setGroupIdx }) => {
         root.render(<SectionChip sector={d.sector} />);
       });
 
-    svg // profit-bar에 적용할 radius 설정
+    svg // profit-bar
       .append("defs")
       .append("clipPath")
       .attr("id", "clip-left-rounded")
@@ -252,7 +247,7 @@ const RankList = ({ userId, setGroupIdx }) => {
       .attr("rx", 10)
       .attr("ry", 10);
 
-    svg // sentiment-bar에 적용할 radius 설정
+    svg // sentiment-bar
       .append("defs")
       .append("clipPath")
       .attr("id", "clip-right-rounded")
@@ -315,9 +310,9 @@ const RankList = ({ userId, setGroupIdx }) => {
     rowsEnter // 장바구니 담기
       .append("cartComponent")
       .attr("class", "cart")
-      .attr("x", "44%") // 적절한 위치로 조정 필요
+      .attr("x", "44%")
       .attr("y", 10)
-      .attr("width", 30) // 아이콘 크기 조정
+      .attr("width", 30)
       .attr("height", 30)
       .each(function (d) {
         const cartComponent = this;
@@ -336,9 +331,9 @@ const RankList = ({ userId, setGroupIdx }) => {
 
     rowsUpdate
       .select(".color-type")
-      .attr("cx", 55) // x 좌표
-      .attr("cy", (d) => height / 2) // y 좌표
-      .attr("r", (d) => (height - 20) / 2) // 반지름
+      .attr("cx", 55)
+      .attr("cy", (d) => height / 2)
+      .attr("r", (d) => (height - 20) / 2)
       .attr("fill", (d) => d.color);
 
     rowsUpdate
@@ -400,18 +395,6 @@ const RankList = ({ userId, setGroupIdx }) => {
       )
       .style("width", (d) => (d.oogong_rate * weight_o) / widthScale + "px");
 
-    // // rowsUpdate 부분
-    // rowsUpdate
-    //   .select(".cartComponent")
-    //   .attr("x", "44%") // 적절한 위치로 조정 필요
-    //   .attr("y", 10)
-    //   .attr("width", 100) // 아이콘 크기 조정
-    //   .attr("height", 30)
-    //   .each(function (d) {
-    //     const cartComponent = this;
-    //     const root = createRoot(cartComponent);
-    //     root.render(<ClickCart />);
-    //   });
   };
 
   return (

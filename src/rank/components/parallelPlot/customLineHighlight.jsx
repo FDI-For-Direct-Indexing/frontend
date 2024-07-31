@@ -18,11 +18,11 @@ const CustomLineHighlight = ({ computedData, variables, lineGenerator, highlight
           lineWidth={activeData === -1 ? 1.5 : activeData === datum.id ? 5 : 1}
           tooltip={(line) => <CustomTooltip line={line} />}
           opacity={activeData === -1 ? 1 : activeData === datum.id ? 1 : 0.3}
-          onMouseEnter={(e) => setActiveData(datum.id) }
-          onMouseMove={(e) => setActiveData(datum.id) }
-          onMouseLeave={(e) => setActiveData(-1) }
+          onMouseEnter={(e) => setActiveData(datum.id)}
+          onMouseMove={(e) => setActiveData(datum.id)}
+          onMouseLeave={(e) => setActiveData(-1)}
           // 강조된 그룹과 현재 그룹을 비교하여 강조 여부 결정
-          highlight={ highlightedGroup === null || highlightedGroup === datum.group.id }
+          highlight={highlightedGroup === null || highlightedGroup === datum.group.id}
         />
       ))}
     </g>
@@ -40,7 +40,7 @@ export const ParallelCoordinatesLine = ({
   onMouseEnter,
   onMouseMove,
   onMouseLeave,
-  highlight, // 강조 여부 추가
+  highlight,
 }) => {
   const { showTooltipFromEvent, hideTooltip } = useTooltip();
   const handleMouseHover = useCallback(
@@ -54,7 +54,7 @@ export const ParallelCoordinatesLine = ({
   const animatedPath = useAnimatedPath(lineGenerator(datum.points));
   const animatedProps = useSpring({
     color: datum.color,
-    opacity: highlight ? opacity : 0.1, // 강조 여부에 따른 투명도 설정
+    opacity: highlight ? opacity : 0.1,
     config: springConfig,
     immediate: !animate,
   });
@@ -63,7 +63,7 @@ export const ParallelCoordinatesLine = ({
     <animated.path
       d={animatedPath}
       stroke={animatedProps.color}
-      strokeWidth={highlight ? lineWidth : 1} // 강조 여부에 따른 너비 설정
+      strokeWidth={highlight ? lineWidth : 1}
       strokeLinecap="round"
       opacity={animatedProps.opacity}
       fill="none"

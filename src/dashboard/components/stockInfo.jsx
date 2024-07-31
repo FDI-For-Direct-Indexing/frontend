@@ -25,7 +25,7 @@ export default function StockInfo({ code, userId }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+`/api/stocksDetail/${code}`);
+        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL + `/api/stocksDetail/${code}`);
         if (response.data) {
           const stockName = response.data.name;
           setName(stockName);
@@ -85,7 +85,6 @@ export default function StockInfo({ code, userId }) {
     <div className="stock-info">
       <div>
         <p className="stock-name">{name}</p>
-        {/* isCartFull 상태와 setIsCartFull 함수를 ClickCart 컴포넌트에 전달 */}
         <ClickCart
           code={code}
           name={name}

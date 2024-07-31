@@ -14,7 +14,7 @@ export const useKeyword = () => {
       alert("해당 종목을 찾을 수 없습니다.");
       return;
     }
-    navigate(`/${searchResult.code}`); // 추후 router로 페이지 이동 작성
+    navigate(`/${searchResult.code}`);
   };
 
   return { keyword, setKeyword, searchKeyword };
