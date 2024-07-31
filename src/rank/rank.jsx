@@ -47,8 +47,8 @@ export default function Rank() {
             </Row>
             <Row >
               <Col xs={6}>
-                <div className="basicBox" style={{ height: "820px" }}>
-                  <CustomGraph title="맞춤형 순위" />
+                <div className="basicBox" style={{ height: "780px" }}>
+                  <CustomGraph title="맞춤형 순위" style={{ marginBottom: "10px" }} />
                   <TitleLine />
                   <RankList userId={userId} setGroupIdx={setHighlightGroupIdx} />
                 </div>

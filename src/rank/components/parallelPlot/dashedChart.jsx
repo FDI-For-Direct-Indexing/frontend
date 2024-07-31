@@ -186,12 +186,12 @@ export default function DashedChart({ highlightGroupIdx }) {
   }, [highlightGroupIdx]);
 
   return (
-    <div className='basicBox' style={{ marginTop: '20px' }}>
+    <div className='basicBox' style={{ marginTop: '20px', minHeight: '400px' }}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <p style={{ fontSize: '18px', fontFamily: 'SpoqaHanSansNeo-Bold', textWrap: 'inherit', marginBottom: '5px' }}>평행 그래프</p>
         <p style={{ color: DESCRIPTION, fontSize: '14px', paddingLeft: '10px', marginBottom: '2px' }}>그룹의 평균 값을 확인해보자</p>
       </div>
-      <div id="chart" ref={chartRef}></div>
+      <div id="chart" ref={chartRef} style={{ margin: 'auto' }}></div>
     </div>
   )
 }

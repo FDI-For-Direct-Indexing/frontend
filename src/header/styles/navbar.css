@@ -21,8 +21,10 @@
 }
 
 .searchForm .form-control::placeholder {
-  font-size: 0.9em; /* 원하는 크기로 조정 */
-  color: #6c757d; /* 선택 사항: placeholder 글자 색상 조정 */
+  font-size: 0.9em;
+  /* 원하는 크기로 조정 */
+  color: #6c757d;
+  /* 선택 사항: placeholder 글자 색상 조정 */
 }
 
 .searchForm {
@@ -46,7 +48,7 @@
   max-height: 150px;
   overflow-y: auto;
   width: 19%;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .included-result {
@@ -63,19 +65,32 @@
 
 .nav-right-link {
   display: flex;
-  align-items: center; 
+  align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
   margin-left: 15px;
 }
 
+.nav-right-link p {
+  letter-spacing: normal;
+}
+
+.nav-right-link p:hover {
+  color: #000000;
+  letter-spacing: 0.1cap;
+  font-family: "SpoqaHanSansNeo-Bold";
+}
+
 .search-form {
   display: flex;
   align-items: center;
-  background-color: #f0f0f0; /* 회색 배경색 */
-  border-radius: 20px; /* 모서리 radius */
+  background-color: #f0f0f0;
+  /* 회색 배경색 */
+  border-radius: 20px;
+  /* 모서리 radius */
   padding: 5px;
-  margin-left: auto; /* 오른쪽 정렬을 위한 마진 설정 */
+  margin-left: auto;
+  /* 오른쪽 정렬을 위한 마진 설정 */
 }
 
 .search-form-group {
@@ -95,8 +110,4 @@
   outline: none;
   box-shadow: none;
   background-color: transparent;
-}
-
-.nav-right-link p:hover {
-  letter-spacing: 1.5px;
 }
