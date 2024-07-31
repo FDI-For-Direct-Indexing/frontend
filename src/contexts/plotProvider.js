@@ -1,6 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext } from "react";
 import { useScatterData } from "../rank/hooks/scatter";
-import { CLUSTER } from "../constants/color"; 
 
 export const PlotContext = createContext();
 

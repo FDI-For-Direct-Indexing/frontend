@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import "./chatAi.css";
 import fdiImage from "./fdi.jpg"; // FDI 이미지 파일 import
 import Email_Send from "./Email_Send.jpg"; // 이메일 전송 아이콘 이미지 파일 import
-import profileImage from "./chat-symbol.png"; // 새로 만든 귀여운 프로필 이미지 파일 import
+import profileImage from "../assets/image/chat-symbol.png"; // 새로 만든 귀여운 프로필 이미지 파일 import
+import { useLocation } from "react-router-dom";
 
 export default function Chatai() {
+  const {state} = useLocation();
   const initialMessages = [
-    "안녕하세요 000님 AI 다이렉트 인덱싱 서비스 FDI입니다. 당신에게 맞는 종목을 찾을 수 있게 도와드릴게요!",
+    `안녕하세요 ${state.name}님, AI 다이렉트 인덱싱 서비스 FDI입니다. 당신에게 맞는 종목을 찾을 수 있게 도와드릴게요!`,
     "주식투자를 할 때 어려움 점이 있나요?",
   ];
   const [messages, setMessages] = useState([
@@ -155,10 +157,10 @@ export default function Chatai() {
 
   return (
     <div className="App">
-      <div className="profile-container">
+      {/* <div className="profile-container">
         <img src={profileImage} alt="Profile" className="profile-image" />
         <div className="bot-status">봇과 대화 중</div>
-      </div>
+      </div> */}
       <img src={fdiImage} alt="FDI" className="chat-image" />
       <div className="chat-window">
         <div className="chat-messages">

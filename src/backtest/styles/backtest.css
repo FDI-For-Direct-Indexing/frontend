@@ -1,0 +1,66 @@
+.backtest {
+  height: 100%;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  min-width: 1200px;
+}
+
+.backtest-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.backtest-title > .backtest-info {
+  font-size: 14px;
+  color: grey;
+}
+
+.backtest-components {
+  padding: 30px 110px;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.backtest-components > .left-part {
+  background-color: white;
+  padding: 28px;
+}
+
+.backtest-components-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.backtest-components-graph {
+  margin-bottom: 33px;
+}
+
+.backtest-components > .right-part {
+  background-color: white;
+  padding: 28px;
+}
+
+.backtest-result-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.backtest-period {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.backtest-period > .period-date {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.period-date > .result-date-title {
+  font-size: 14px;
+  font-weight: bold;
+}

@@ -26,7 +26,7 @@ export default function DashedChart({ highlightGroupIdx }) {
     } else {
       console.log("체크", highlightGroupIdx);
       return parallelData.map((series, index) => ({
-        name: series.id,
+        name: `그룹 ${index + 1}`,
         data: series.data,
         color: highlightGroupIdx.includes(index) ? colorList[index] : '#CCCCCC',
         strokeWidth: highlightGroupIdx.includes(index) ? 6 : originalStroke[index],
@@ -110,7 +110,7 @@ export default function DashedChart({ highlightGroupIdx }) {
         labels: {
           formatter: function (val) {
             return Math.round(val);
-          },  
+          },
           style: {
             fontFamily: 'SpoqaHanSansNeo-Bold' // Y축 라벨 폰트 설정
           }
