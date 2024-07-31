@@ -84,9 +84,9 @@ function CustomGraph({ title }) {
 
   return (
     <div className="main-body">
-      <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
-        <p style={{fontSize:'18px', fontFamily:'SpoqaHanSansNeo-Bold', textWrap:'inherit', marginBottom:'5px'}}>{title}</p>
-        <p style={{color:DESCRIPTION, fontSize:'14px', paddingLeft:'10px', marginBottom:'2px'}}>나의 선호에 맞는 종목들은 어떤 게 있을까?</p>
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '10px' }}>
+        <p style={{ fontSize: '18px', fontFamily: 'SpoqaHanSansNeo-Bold', textWrap: 'inherit', marginBottom: '5px' }}>{title}</p>
+        <p style={{ color: DESCRIPTION, fontSize: '14px', paddingLeft: '10px', marginBottom: '2px' }}>나의 선호에 맞는 종목들은 어떤 게 있을까?</p>
       </div>
       <div className="index-info">
         <div className="index-name">
@@ -127,7 +127,7 @@ function CustomGraph({ title }) {
               borderRadius: index === 0 ? "10px 0 0 10px" : index === 5 ? "0 10px 10px 0" : "0",
             }}
           >
-            <p style={{margin:0, fontFamily:'SpoqaHanSansNeo-Medium'}}>
+            <p style={{ margin: 0, fontFamily: 'SpoqaHanSansNeo-Medium' }}>
               {section.percentage.toFixed(0)}%
             </p>
             {index < sections.length - 1 && (
@@ -136,7 +136,7 @@ function CustomGraph({ title }) {
           </div>
         ))}
       </div>
-      
+
     </div>
   );
 }

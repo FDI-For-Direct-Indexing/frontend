@@ -9,15 +9,15 @@ export default function Clustering() {
   const { scatterData } = useContext(PlotContext);
   const { setHoveredNode } = useBlinkNode();
   const colorList = CLUSTER;
-  
+
   return (
-    <div className='basicBox' style={{ width: '100%', height: '300px' }}>
+    <div className='basicBox' style={{ width: '100%', height: '330px' }}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <p style={{ fontSize: '18px', fontFamily: 'SpoqaHanSansNeo-Bold', textWrap: 'inherit', marginBottom: '5px' }}>클러스터링</p>
         <p style={{ color: DESCRIPTION, fontSize: '14px', paddingLeft: '10px', marginBottom: '2px' }}>그룹화된 정보를 확인해보자</p>
       </div>
 
-      <div style={{ padding: '0 30px', height: '270px' }}> 
+      <div style={{ padding: '0 30px', height: '270px' }}>
         <ResponsiveScatterPlot
           data={scatterData}
           margin={{ top: 30, right: 10, bottom: 30, left: 10 }}
