@@ -400,18 +400,18 @@ const RankList = ({ userId, setGroupIdx }) => {
       )
       .style("width", (d) => (d.oogong_rate * weight_o) / widthScale + "px");
 
-    // rowsUpdate 부분
-    rowsUpdate
-      .select(".cartComponent")
-      .attr("x", "44%") // 적절한 위치로 조정 필요
-      .attr("y", 10)
-      .attr("width", 100) // 아이콘 크기 조정
-      .attr("height", 30)
-      .each(function (d) {
-        const cartComponent = this;
-        const root = createRoot(cartComponent);
-        root.render(<ClickCart />);
-      });
+    // // rowsUpdate 부분
+    // rowsUpdate
+    //   .select(".cartComponent")
+    //   .attr("x", "44%") // 적절한 위치로 조정 필요
+    //   .attr("y", 10)
+    //   .attr("width", 100) // 아이콘 크기 조정
+    //   .attr("height", 30)
+    //   .each(function (d) {
+    //     const cartComponent = this;
+    //     const root = createRoot(cartComponent);
+    //     root.render(<ClickCart />);
+    //   });
   };
 
   return (
