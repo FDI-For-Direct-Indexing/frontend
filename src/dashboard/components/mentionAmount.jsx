@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ApexCharts from "react-apexcharts";
 import "../styles/mentionAmount.css";
+import { API_URL } from "../../common/api";
 
 export default function MentionAmount({ name }) {
   const [seriesData, setSeriesData] = useState([]);
@@ -10,7 +11,7 @@ export default function MentionAmount({ name }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+`/api/trend?keywords=${name}`);
+        const response = await axios.get(`${API_URL.LOCAL}/api/trend?keywords=${name}`);
         const data = response.data;
         const periods = data.map((item) => item.period);
         const ratios = data.map((item) => item.ratio);

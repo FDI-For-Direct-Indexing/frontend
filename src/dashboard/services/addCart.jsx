@@ -1,8 +1,9 @@
 import axios from "axios";
+import { API_URL } from "../../common/api";
 
 export default async function AddCart({ code, userId }) {
   try {
-    const response = await axios.post("http://localhost:4000/api/cart", {
+    const response = await axios.post(`${API_URL.LOCAL}/api/cart`, {
       userId,
       code,
     });
