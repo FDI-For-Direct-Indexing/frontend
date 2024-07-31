@@ -9,6 +9,7 @@ import RelatedNews from "./components/relatedNews";
 import RelatedKeywords from "./components/relatedKeywords";
 import Indicator from "./components/indicator";
 import { useParams } from "react-router-dom";
+import { API_URL } from "../common/api";
 
 export default function Dashboard() {
   const code = useParams().code;
@@ -18,7 +19,7 @@ export default function Dashboard() {
   const types = ["profit", "stability", "growth", "efficiency"];
 
   useEffect(() => {
-    fetch(`http://localhost:4000/api/stocksDetail/${code}`)
+    fetch(`${API_URL.LOCAL}/api/stocksDetail/${code}`)
       .then((res) => res.json())
       .then((data) => {
         setStockName(data.name);
@@ -40,7 +41,7 @@ export default function Dashboard() {
             <RelatedNews code={code} />
           </Col>
           <Col sm={8} className="right-part">
-            <RelatedKeywords />
+            <RelatedKeywords name={stockName} />
             <div className="indicators">
               <div>
                 <Indicator code={code} type={types[0]} />

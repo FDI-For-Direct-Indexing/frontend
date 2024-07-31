@@ -5,6 +5,10 @@ import Rank from "./rank/rank";
 import Dashboard from "./dashboard/dashboard";
 import Cart from "./cart/cart";
 import ProgressPage from "./common/ui/progresspage";
+<<<<<<< Updated upstream
+=======
+import Backtest from "./backtest/backtest";
+>>>>>>> Stashed changes
 
 const router = createBrowserRouter([
   { path: "/", element: <ChatAi />, index: true },

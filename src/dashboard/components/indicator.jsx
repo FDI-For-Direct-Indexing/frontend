@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import questionmark from "../../assets/image/questionmark.svg";
 import ApexCharts from "react-apexcharts";
 import axios from "axios";
+import { API_URL } from "../../common/api";
 
 export default function Indicator({ code, type }) {
   const [data, setData] = useState({ categories: [], rates: [] });
@@ -16,7 +17,7 @@ export default function Indicator({ code, type }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`http://localhost:4000/api/stocksDetail/${code}`);
+        const response = await axios.get(`${API_URL.LOCAL}/api/stocksDetail/${code}`);
         if (response.data[type]) {
           const categories = response.data[type].map((item) => item.matrix);
           const rates = response.data[type].map((item) => parseFloat(item.rates));
