@@ -10,4 +10,4 @@ export const getUsername = async (userId) => {
     .catch((error) => {
       console.error("Error at header => User: ", error);
     });
-}
+};

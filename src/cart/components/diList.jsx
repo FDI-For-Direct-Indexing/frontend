@@ -5,29 +5,20 @@ import SectionChip from "../../common/ui/sectionChip";
 import upicon from "../../assets/image/up-icon.svg";
 import downicon from "../../assets/image/down-icon.svg";
 import Dropdown from "react-bootstrap/Dropdown";
-import SEARCH from "../../assets/image/search.svg";
 import trashCan from "../../assets/image/trashCan.png";
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Backtest from "../../assets/image/backtest.svg";
-import {
-  useKeyword,
-  useIncludedResults,
-  useShowIncludedResults,
-} from "../../header/hooks/searchBar";
 import { colorMapping } from "../../constants/color";
 import BacktestModal from "./backtestModal";
 import { Modal } from "react-bootstrap";
+import { API_URL } from "../../common/api";
 
 export default function DiList({ userId }) {
   const [cartList, setCartList] = useState([]);
   const [selectedList, setSelectedList] = useState([]);
-  const { keyword, setKeyword, searchKeyword } = useKeyword();
-  const { showIncludedResults, handleKeyword, handleIncludedResultClick, wrapperRef } =
-    useShowIncludedResults(setKeyword);
-  const sectors = Object.keys(colorMapping);
+  const [sectors, setSectors] = useState(["전체", ...Object.keys(colorMapping)]);
   const [color, setColor] = useState("#a1a7c4");
-  const [selectedSector, setSelectedSector] = useState("섹터");
+  const [selectedSector, setSelectedSector] = useState("전체");
   const [showModal, setShowModal] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [ratios, setRatios] = useState({});
@@ -38,8 +29,9 @@ export default function DiList({ userId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/cart?id=${userId}`);
+        const response = await axios.get(`${API_URL.LOCAL}/api/cart?id=${userId}`);
         if (response.data) {
+          console.log("Cart list:", response.data);
           setCartList([...response.data]);
         }
       } catch (error) {
@@ -48,6 +40,28 @@ export default function DiList({ userId }) {
     };
     fetchData();
   }, [userId]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let response;
+        if (selectedSector === "전체") {
+          response = await axios.get(`${API_URL.LOCAL}/api/cart?id=${userId}`);
+        } else {
+          response = await axios.get(
+            `${API_URL.LOCAL}/api/sector/cart?id=${userId}&sector=${selectedSector}`,
+          );
+        }
+        if (response.data) {
+          console.log("Cart list:", response.data);
+          setCartList([...response.data]);
+        }
+      } catch (error) {
+        console.error("Error fetching data", error);
+      }
+    };
+    fetchData();
+  }, [selectedSector]);
 
   const allSelected = selectedList.length === cartList.length;
 
@@ -68,7 +82,7 @@ export default function DiList({ userId }) {
   };
 
   const handleSectorColor = (sector) => {
-    if (sector === "섹터") {
+    if (sector === "전체") {
       return setColor("#a1a7c4");
     } else {
       return setColor("black");
@@ -90,7 +104,7 @@ export default function DiList({ userId }) {
     }
     try {
       const deleteData = selectedList.map((code) => ({ code, userId }));
-      await axios.delete(process.env.REACT_APP_LOCAL_API_URL+"/api/cart", { data: deleteData });
+      await axios.delete(`${API_URL.LOCAL}/api/cart`, { data: deleteData });
 
       const newCartList = cartList.filter((item) => !selectedList.includes(item.code));
       setCartList(newCartList);
@@ -149,24 +163,6 @@ export default function DiList({ userId }) {
               ))}
             </Dropdown.Menu>
           </Dropdown>
-          <Form className="di-search" onSubmit={searchKeyword}>
-            <div className="search-form-group">
-              <img src={SEARCH} alt="Search" width="24" />
-              <Form.Control
-                type="search"
-                placeholder="종목명으로 검색하세요."
-                className="search-input me-2"
-                aria-label="Search"
-                value={keyword}
-                onChange={handleKeyword}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    searchKeyword(e); // Enter key를 누르면 검색
-                  }
-                }}
-              ></Form.Control>
-            </div>
-          </Form>
         </div>
         <div className="cart-buttons">
           <img

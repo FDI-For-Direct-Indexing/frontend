@@ -3,6 +3,7 @@ import axios from "axios";
 import questionmark from "../../assets/image/questionmark.svg";
 import GetNews from "../services/newsCrawling";
 import "../styles/relatedNews.css";
+import { API_URL } from "../../common/api";
 
 export default function RelatedNews({ code }) {
   const [newsList, setNewsList] = useState([]);
@@ -12,7 +13,7 @@ export default function RelatedNews({ code }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+`/api/stocksDetail/${code}`);
+        const response = await axios.get(`${API_URL.LOCAL}/api/stocksDetail/${code}`);
         const stockName = response.data.name;
         const news = await GetNews(stockName);
         setNewsList(news);

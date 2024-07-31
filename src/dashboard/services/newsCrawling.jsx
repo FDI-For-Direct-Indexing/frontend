@@ -1,7 +1,8 @@
 import axios from "axios";
+import { API_URL } from "../../common/api";
 
 export default async function GetNews(stockName) {
-  const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+"/api/stocksDetail/proxy/news", {
+  const response = await axios.get(`${API_URL.LOCAL}/api/stocksDetail/proxy/news`, {
     params: { stockName },
   });
   console.log(response.data);
