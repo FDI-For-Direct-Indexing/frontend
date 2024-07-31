@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./chatAi.css";
 import fdiImage from "./fdi.jpg"; // FDI 이미지 파일 import
 import Email_Send from "./Email_Send.jpg"; // 이메일 전송 아이콘 이미지 파일 import
@@ -7,7 +7,9 @@ import profileImage from "../assets/image/chat-symbol.png"; // 새로 만든 귀
 import { useLocation } from "react-router-dom";
 import { LLM_API } from "../common/api";
 
-export default function Chatai(userId) {
+export default function Chatai() {
+  const params = useParams();
+  const userId = params.userId;
   const { state } = useLocation();
   const initialMessages = [
     `안녕하세요 ${state.name}님, AI 다이렉트 인덱싱 서비스 FDI입니다. 당신에게 맞는 종목을 찾을 수 있게 도와드릴게요!`,
@@ -34,6 +36,7 @@ export default function Chatai(userId) {
 
   useEffect(() => {
     scrollToBottom();
+    console.log(params.userId);
   }, [messages]);
 
   const handleSend = async () => {
@@ -46,7 +49,7 @@ export default function Chatai(userId) {
         // Immediately show the final message and navigate to loading page
         addTypingMessage("답변 감사합니다! 조금만 기다려주세요~");
         setTimeout(() => {
-          navigate("/loading", { state: { name: "000" } }); // Adjust the state as needed
+          navigate(`/loading`); // Adjust the state as needed
         }, 1000); // 1-second delay before navigating to the loading page
       }
 

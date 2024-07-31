@@ -1,60 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useParams } from "react";
 import NavbarHeader from "../header/navbarHeader";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ChatSummary from "./components/chatSummary";
 import CartSummary from "./components/cartSummary";
+import Clustering from "./components/clustering";
+import Parallel from "./components/parallelPlot/parallel";
 import RankList from "./components/weightgraph/rankList";
 import TitleLine from "./components/weightgraph/titleLine";
 import CustomGraph from "./components/weightgraph/customGraph";
 import { WeightProvider } from "../contexts/weightProvider";
 import { PlotProvider } from "../contexts/plotProvider";
-import Plots from "./components/plots";
-import { useParams } from "react-router-dom";
-import { getUsername } from "../header/apis/username";
+import DashedChart from "./components/parallelPlot/dashedChart";
 
 export default function Rank() {
   const params = useParams();
-  const userId = params.userId;
 
   const [highlightGroupIdx, setHighlightGroupIdx] = useState(null);
-  const [username, setUsername] = useState("게스트");
-
-  useEffect(() => {
-    const fetchUsername = async () => {
-      const name = await getUsername(userId);
-      setUsername(name);
-    }
-
-    fetchUsername();
-  }, [userId]);
 
   return (
     <div className="pageBack">
-      <NavbarHeader userId={userId} />
+      <NavbarHeader userId={params} />
 
       <Container style={{ padding: "25px 5vw" }} fluid>
         <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
           <PlotProvider>
             <Row style={{ marginBottom: "25px" }}>
               <Col xs={8}>
-                <ChatSummary userId={userId} name={username} />
+                <ChatSummary />
               </Col>
               <Col xs={4}>
-                <CartSummary userId={userId} />
+                <CartSummary userId={params} />
               </Col>
             </Row>
-            <Row >
+            <Row>
               <Col xs={6}>
-                <div className="basicBox" style={{ height: "820px" }}>
+                <div className="basicBox" style={{ height: "750px" }}>
                   <CustomGraph title="맞춤형 순위" />
                   <TitleLine />
-                  <RankList userId={userId} setGroupIdx={setHighlightGroupIdx} />
+                  <RankList setGroupIdx={setHighlightGroupIdx} />
                 </div>
               </Col>
               <Col xs={6}>
-                <Plots highlightGroupIdx={highlightGroupIdx} />
+                <Clustering />
+                <DashedChart highlightGroupIdx={highlightGroupIdx} />
+                {/* <Parallel /> */}
               </Col>
             </Row>
           </PlotProvider>

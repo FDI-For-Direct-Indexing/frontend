@@ -35,16 +35,25 @@ export default function CartSummary({ userId }) {
         </p>
       </div>
       <div>
-        {
-          recentCart 
-          ? recentCart.map((item, index) => (
-            <div key={index} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '10px 10px 0px 10px' }}>
-              <p style={{ fontSize: '16px', margin: '0px' }}>{item.name}</p>
-              <p style={{ fontSize: '16px', margin: '0px' }}>{item.price}원</p>
+        {recentCart ? (
+          recentCart.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "10px 10px 0px 10px",
+              }}
+            >
+              <p style={{ fontSize: "16px", margin: "0px" }}>{item.name}</p>
+              <p style={{ fontSize: "16px", margin: "0px" }}>{item.price}원</p>
             </div>
           ))
-          : <p style={{ fontSize: '16px', margin: '0px' }}>장바구니가 비어있습니다.</p>
-        }
+        ) : (
+          <p style={{ fontSize: "16px", margin: "0px" }}>장바구니가 비어있습니다.</p>
+        )}
       </div>
     </div>
   );

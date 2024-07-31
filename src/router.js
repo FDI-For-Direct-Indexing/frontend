@@ -5,6 +5,7 @@ import Rank from "./rank/rank";
 import Dashboard from "./dashboard/dashboard";
 import Cart from "./cart/cart";
 import ProgressPage from "./common/ui/progresspage";
+import DashedChart from "./rank/components/parallelPlot/dashedChart";
 import Backtest from "./backtest/backtest";
 import Start from "./chatai/start";
 
