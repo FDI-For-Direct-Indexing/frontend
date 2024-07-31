@@ -3,7 +3,7 @@ import { getSearchResult, getIncludedSearchResult } from "../apis/search";
 import useDebounce from "./debounce";
 import { useNavigate } from "react-router-dom";
 
-export const useKeyword = () => {
+export const useKeyword = (userId) => {
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
 
@@ -14,8 +14,8 @@ export const useKeyword = () => {
       alert("해당 종목을 찾을 수 없습니다.");
       return;
     }
-    console.log(searchResult.code);
-    navigate(`/${searchResult.code}`); // 추후 router로 페이지 이동 작성
+    console.log("code: ", searchResult.code);
+    navigate(`/dashboard/${userId}/${searchResult.code}`); // 추후 router로 페이지 이동 작성
   };
 
   return { keyword, setKeyword, searchKeyword };
