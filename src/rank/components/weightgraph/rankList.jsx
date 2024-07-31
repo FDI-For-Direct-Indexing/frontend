@@ -36,7 +36,7 @@ const RankList = ({ userId, setGroupIdx }) => {
           .attr("width", "100%")
           .attr("minWidth", "600px")
           .attr("height", weightData.length * 100);
-          // .attr("height", weightData.length * 50 + 50); // 데이터 길이에 따라 높이 조정
+        // .attr("height", weightData.length * 50 + 50); // 데이터 길이에 따라 높이 조정
         // 군집 색상 바로;
 
         if (data != undefined && data.length > 0) {
@@ -62,7 +62,7 @@ const RankList = ({ userId, setGroupIdx }) => {
           .attr("width", "100%")
           .attr("minWidth", "600px")
           .attr("height", d.length * 50 + 100); // 데이터 길이에 따라 높이 조정
-        
+
         const groupClasses = ["group0", "group1", "group2", "group3", "group4"];
 
         groupClasses.forEach((groupClass) => {
@@ -139,7 +139,7 @@ const RankList = ({ userId, setGroupIdx }) => {
     const sortedData = rankSort(sliderValues, data);
     setData(sortedData);
     setSortedData(sortedData); // sortedData 설정
-    update(sortedData, svg, ...sliderValues, "group1");  
+    update(sortedData, svg, ...sliderValues, "group1");
   };
 
   const update = async (data, svg, weight_d, weight_s, weight_n, weight_m, weight_q, weight_o, groupClass) => {
@@ -173,13 +173,13 @@ const RankList = ({ userId, setGroupIdx }) => {
       .on("mouseenter", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#f0f0f0");
         const currentGroupClass = d3.select(this).attr("data-group-class");
-        console.log("mouse enter", currentGroupClass);
-        setGroupIdx(currentGroupClass); // 클릭한 기업의 group idx를 저장 => highlight
+        //console.log("mouse enter", currentGroupClass);
+        //setGroupIdx(currentGroupClass); // 클릭한 기업의 group idx를 저장 => highlight
       })
       .on("mouseleave", function (event, d) {
         d3.select(this).select("rect.background").attr("fill", "#ffffff");
-        console.log("mouse leave, ", d3.select(this).attr("data-group-class"));
-        setGroupIdx(null); // 클릭한 기업의 id를 저장 => highlight off
+        //console.log("mouse leave, ", d3.select(this).attr("data-group-class"));
+        //setGroupIdx(null); // 클릭한 기업의 id를 저장 => highlight off
       });
 
     rowsEnter
@@ -253,7 +253,7 @@ const RankList = ({ userId, setGroupIdx }) => {
       .attr("ry", 10);
 
     svg // sentiment-bar에 적용할 radius 설정
-      .append("defs") 
+      .append("defs")
       .append("clipPath")
       .attr("id", "clip-right-rounded")
       .append("rect")
@@ -295,7 +295,7 @@ const RankList = ({ userId, setGroupIdx }) => {
       .attr("height", height - 34)
       .attr("fill", INDICATORS[3])
       .attr("fill-opacity", 0.7);
-      
+
     rowsEnter
       .append("rect")
       .attr("class", "mention-bar")
@@ -324,7 +324,7 @@ const RankList = ({ userId, setGroupIdx }) => {
         const root = createRoot(cartComponent);
         root.render(<ClickCart />);
       });
-      
+
     // Update
     const rowsUpdate = rows
       .merge(rowsEnter)
@@ -384,7 +384,7 @@ const RankList = ({ userId, setGroupIdx }) => {
           (d.growth * weight_n) / widthScale +
           (d.efficiency * weight_m) / widthScale
       )
-      .style("width", (d) => (d.oogong_rate * weight_q) / widthScale + "px");
+      .style("width", (d) => (d.mention * weight_q) / widthScale + "px");
 
     rowsUpdate
       .select(".sentiment-bar")

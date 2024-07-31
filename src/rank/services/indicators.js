@@ -3,7 +3,7 @@ import { LLM_API } from "../../common/api";
 
 export const getIndicatorsResult = (userId) => {
   return axios
-    .get(`${LLM_API.LOCAL}/api/ai/execute-completion/${userId}`)
+    .get(`${LLM_API.LOCAL}/api/ai/get-final-response`) // /${userId}
     .then((response) => {
       return response.data;
     })
