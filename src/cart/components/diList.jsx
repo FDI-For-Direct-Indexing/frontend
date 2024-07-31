@@ -90,7 +90,7 @@ export default function DiList({ userId }) {
     }
     try {
       const deleteData = selectedList.map((code) => ({ code, userId }));
-      await axios.delete("http://localhost:4000/api/cart", { data: deleteData });
+      await axios.delete(process.env.REACT_APP_LOCAL_API_URL+"/api/cart", { data: deleteData });
 
       const newCartList = cartList.filter((item) => !selectedList.includes(item.code));
       setCartList(newCartList);

@@ -16,7 +16,7 @@ export default function Indicator({ code, type }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`http://localhost:4000/api/stocksDetail/${code}`);
+        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+`/api/stocksDetail/${code}`);
         if (response.data[type]) {
           const categories = response.data[type].map((item) => item.matrix);
           const rates = response.data[type].map((item) => parseFloat(item.rates));
