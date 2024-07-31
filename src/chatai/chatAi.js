@@ -39,6 +39,14 @@ export default function Chatai() {
       setInput("");
       setLoading(true);
 
+      if (turn === 5) {
+        // Immediately show the final message and navigate to loading page
+        addTypingMessage("답변 감사합니다! 조금만 기다려주세요~");
+        setTimeout(() => {
+          navigate("/loading", { state: { name: "000" } }); // Adjust the state as needed
+        }, 1000); // 1-second delay before navigating to the loading page
+      }
+
       const requestData = {
         messages: [
           {
@@ -77,7 +85,6 @@ export default function Chatai() {
             if (turn < 5) {
               addTypingMessage(data.content);
             } else {
-              console.log("Final Response (before save):", data.content); // 응답 확인
               await fetch("http://localhost:8000/ai/save-final-response", {
                 method: "POST",
                 headers: {
@@ -86,10 +93,9 @@ export default function Chatai() {
                 body: JSON.stringify({ response: data.content }),
               });
               setFinalResponse(data.content); // 최종 응답 설정
-              addTypingMessage("답변 감사합니다! 조금만 기다려주세요~");
               setTimeout(() => {
-                navigate("/loading", { state: { name: "000" } }); // 리디렉션 및 상태 전달
-              }, 2000); // 2초 후에 리디렉션
+                navigate(`/rank/${userId}`); // 리디렉션 및 상태 전달
+              }, 1000); // 1초 후에 리디렉션
             }
           } else {
             addTypingMessage("응답을 받지 못했습니다. 다시 시도해주세요.");
