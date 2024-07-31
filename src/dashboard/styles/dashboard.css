@@ -187,3 +187,17 @@ p {
   position: relative;
   top: -10px;
 }
+
+.wordcloud-error {
+  width: 650px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  left: -200px;
+  font-size: 20px;
+  color: #5a607f;
+}
