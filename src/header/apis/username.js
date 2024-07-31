@@ -5,7 +5,6 @@ export const getUsername = async (userId) => {
   return axios
     .get(`${API_URL.LOCAL}/api/users/${userId}`)
     .then((response) => {
-      console.log(response.data);
       return response.data;
     })
     .catch((error) => {
