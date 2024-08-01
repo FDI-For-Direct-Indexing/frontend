@@ -25,6 +25,7 @@
     "react-apexcharts": "^1.4.1",
     "react-bootstrap": "^2.10.4",
     "react-circular-progressbar": "^2.1.0",
+    "react-d3-cloud": "^1.0.6",
     "react-datepicker": "^7.3.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1",

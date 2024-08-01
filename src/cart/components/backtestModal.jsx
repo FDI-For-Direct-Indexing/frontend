@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -38,6 +38,10 @@ export default function BacktestModal({
       setEndDate(date);
     }
   };
+
+  useEffect(() => {
+    setStartDate(subMonths(new Date(), 3));
+  }, [setStartDate]);
 
   return (
     <Modal show={showModal} onHide={handleCloseModal} centered>

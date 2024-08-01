@@ -16,7 +16,7 @@ import CHATSYMBOL from "../assets/image/chat-symbol.png";
 import { getUsername } from "./apis/username";
 
 function NavbarHeader({ userId }) {
-  const { keyword, setKeyword, searchKeyword } = useKeyword();
+  const { keyword, setKeyword, searchKeyword } = useKeyword(userId);
   const includedResults = useIncludedResults(keyword);
   const { showIncludedResults, handleKeyword, handleIncludedResultClick, wrapperRef } =
     useShowIncludedResults(setKeyword);
@@ -25,9 +25,10 @@ function NavbarHeader({ userId }) {
 
   useEffect(() => {
     const fetchUsername = async () => {
+      console.log("Fetching username for user id:", userId);
       const name = await getUsername(userId);
       setUsername(name);
-    }
+    };
 
     fetchUsername();
   }, [userId]);
@@ -71,7 +72,7 @@ function NavbarHeader({ userId }) {
                     <a
                       key={index}
                       className="included-result"
-                      onClick={() => handleIncludedResultClick(result)}
+                      onClick={() => handleIncludedResultClick(result, userId)}
                     >
                       {result}
                     </a>

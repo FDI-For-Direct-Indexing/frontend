@@ -1,8 +1,9 @@
 import axios from "axios";
+import { API_URL } from "../../common/api";
 
 export default async function AddCart({ code, userId }) {
   try {
-    const response = await axios.delete("http://localhost:4000/api/cart", {
+    const response = await axios.delete(`${API_URL.LOCAL}/api/cart`, {
       data: [{ userId, code }],
     });
     return response.data;

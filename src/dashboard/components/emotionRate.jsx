@@ -3,6 +3,7 @@ import whitequestionmark from "../../assets/image/white-questionmark.svg";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import axios from "axios";
 import "react-circular-progressbar/dist/styles.css";
+import { API_URL } from "../../common/api";
 
 export default function EmotionRate({ code }) {
   const [emotionRate, setEmotionRate] = useState(0);
@@ -10,7 +11,7 @@ export default function EmotionRate({ code }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL+`/api/stocksDetail/${code}`);
+        const response = await axios.get(`${API_URL.LOCAL}/api/stocksDetail/${code}`);
         if (response.data) {
           const rate = Math.round(response.data.ogong_rate * 10) / 10;
           setEmotionRate(rate);

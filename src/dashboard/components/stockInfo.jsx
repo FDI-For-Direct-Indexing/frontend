@@ -5,6 +5,7 @@ import { disconnectSocket, requestCurrentPrice } from "../services/stockPrice";
 import upicon from "../../assets/image/up-icon.svg";
 import downicon from "../../assets/image/down-icon.svg";
 import ClickCart from "./clickCart";
+import { API_URL } from "../../common/api";
 
 export default function StockInfo({ code, userId }) {
   const [name, setName] = useState("");
@@ -25,7 +26,7 @@ export default function StockInfo({ code, userId }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(process.env.REACT_APP_LOCAL_API_URL + `/api/stocksDetail/${code}`);
+        const response = await axios.get(`${API_URL.LOCAL}/api/stocksDetail/${code}`);
         if (response.data) {
           const stockName = response.data.name;
           setName(stockName);
@@ -41,7 +42,7 @@ export default function StockInfo({ code, userId }) {
   useEffect(() => {
     async function checkCart() {
       try {
-        const response = await axios.get(`http://localhost:4000/api/cart/${code}?id=${userId}`);
+        const response = await axios.get(`${API_URL.LOCAL}/api/cart/${code}?id=${userId}`);
         if (response.data && response.data.code) {
           setIsCartFull(true);
         } else {
