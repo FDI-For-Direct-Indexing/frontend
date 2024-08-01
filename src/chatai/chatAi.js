@@ -5,6 +5,7 @@ import fdiImage from "./fdi.jpg";
 import Email_Send from "./Email_Send.jpg";
 import profileImage from "../assets/image/chat-symbol.png";
 import { useLocation } from "react-router-dom";
+import { LLM_API } from "../common/api";
 
 export default function Chatai() {
   const { state } = useLocation();
@@ -66,7 +67,7 @@ export default function Chatai() {
       };
 
       try {
-        const response = await fetch("http://localhost:8000/ai/execute-completion", {
+        const response = await fetch(LLM_API.LOCAL + "/ai/execute-completion", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -82,7 +83,7 @@ export default function Chatai() {
               addTypingMessage(data.content);
             } else {
               console.log("Final Response (before save):", data.content); // 응답 확인
-              await fetch("http://localhost:8000/ai/save-final-response", {
+              await fetch(LLM_API.LOCAL + "/ai/save-final-response", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

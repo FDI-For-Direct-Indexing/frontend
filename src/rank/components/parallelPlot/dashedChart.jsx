@@ -106,12 +106,12 @@ export default function DashedChart({ highlightGroupIdx }) {
             return Math.round(val);
           },
           style: {
-            fontFamily: 'SpoqaHanSansNeo-Bold' // Y축 라벨 폰트 설정
+            fontFamily: 'SpoqaHanSansNeo-Bold'
           }
         },
         title: {
           style: {
-            fontFamily: 'SpoqaHanSansNeo-Bold' // Y축 제목 폰트 설정
+            fontFamily: 'SpoqaHanSansNeo-Bold'
           }
         }
       },
