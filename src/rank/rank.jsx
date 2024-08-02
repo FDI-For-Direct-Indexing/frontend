@@ -35,7 +35,7 @@ export default function Rank() {
       <NavbarHeader userId={userId} />
 
       <Container style={{ padding: "25px 5vw" }} fluid>
-        <WeightProvider initialSliderValues={[30, 25, 15, 20, 10]}>
+        <WeightProvider initialSliderValues={[20, 20, 20, 20, 10, 10]}>
           <PlotProvider>
             <Row style={{ marginBottom: "25px" }}>
               <Col xs={8}>

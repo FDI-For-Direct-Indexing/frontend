@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import "../../styles/customgraph.css";
 import { WeightContext } from "../../../contexts/weightProvider";
 import { INDICATORS, DESCRIPTION } from "../../../constants/color";
@@ -13,6 +13,17 @@ function CustomGraph({ title }) {
     { name: "언급량", color: INDICATORS[4], percentage: sliderValues[4] },
     { name: "감정지수", color: INDICATORS[5], percentage: sliderValues[5] },
   ]);
+
+  useEffect(() => {
+    setSections([
+      { name: "수익성", color: INDICATORS[0], percentage: sliderValues[0] },
+      { name: "안정성", color: INDICATORS[1], percentage: sliderValues[1] },
+      { name: "성장성", color: INDICATORS[2], percentage: sliderValues[2] },
+      { name: "활동성", color: INDICATORS[3], percentage: sliderValues[3] },
+      { name: "언급량", color: INDICATORS[4], percentage: sliderValues[4] },
+      { name: "감정지수", color: INDICATORS[5], percentage: sliderValues[5] },
+    ]);
+  }, [sliderValues]);
 
   const graphContainerRef = useRef(null);
 
