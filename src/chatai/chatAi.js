@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./chatAi.css";
-import fdiImage from "./fdi.jpg";
-import Email_Send from "./Email_Send.jpg";
-import profileImage from "../assets/image/chat-symbol.png";
+import fdiImage from "./fdi.jpg"; // FDI 이미지 파일 import
+import Email_Send from "./Email_Send.jpg"; // 이메일 전송 아이콘 이미지 파일 import
+import profileImage from "../assets/image/chat-symbol.png"; // 새로 만든 귀여운 프로필 이미지 파일 import
 import { useLocation } from "react-router-dom";
 import { LLM_API } from "../common/api";
 
 export default function Chatai() {
+  const params = useParams();
+  const userId = params.userId;
   const { state } = useLocation();
   const initialMessages = [
-
     `안녕하세요 ${state.name}님, AI 다이렉트 인덱싱 서비스 FDI입니다. 당신에게 맞는 종목을 찾을 수 있게 도와드릴게요!`,
     "주식투자를 할 때 어려움 점이 있나요?",
-
   ];
   const [messages, setMessages] = useState([
     {
@@ -36,6 +36,7 @@ export default function Chatai() {
 
   useEffect(() => {
     scrollToBottom();
+    console.log(params.userId);
   }, [messages]);
 
   const handleSend = async () => {
@@ -43,6 +44,14 @@ export default function Chatai() {
       setMessages([...messages, { sender: "user", text: input, timestamp: new Date() }]);
       setInput("");
       setLoading(true);
+
+      if (turn === 5) {
+        // Immediately show the final message and navigate to loading page
+        addTypingMessage("답변 감사합니다! 조금만 기다려주세요~");
+        setTimeout(() => {
+          navigate(`/loading`); // Adjust the state as needed
+        }, 1000); // 1-second delay before navigating to the loading page
+      }
 
       const requestData = {
         messages: [
@@ -67,7 +76,7 @@ export default function Chatai() {
       };
 
       try {
-        const response = await fetch(LLM_API.LOCAL + "/ai/execute-completion", {
+        const response = await fetch(`${LLM_API.LOCAL}/ai/execute-completion`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -77,12 +86,11 @@ export default function Chatai() {
 
         if (response.ok) {
           const data = await response.json();
-          setLoading(false);
+          setLoading(false); // 응답이 온 순간 로딩 상태를 false로 설정
           if (data.content) {
             if (turn < 5) {
               addTypingMessage(data.content);
             } else {
-              console.log("Final Response (before save):", data.content); // 응답 확인
               await fetch(LLM_API.LOCAL + "/ai/save-final-response", {
                 method: "POST",
                 headers: {
@@ -91,10 +99,9 @@ export default function Chatai() {
                 body: JSON.stringify({ response: data.content }),
               });
               setFinalResponse(data.content); // 최종 응답 설정
-              addTypingMessage("답변 감사합니다! 조금만 기다려주세요~");
               setTimeout(() => {
-                navigate("/loading", { state: { name: "000" } }); // 리디렉션 및 상태 전달
-              }, 2000); // 2초 후에 리디렉션
+                navigate(`/rank/${userId}`); // 리디렉션 및 상태 전달
+              }, 1000); // 1초 후에 리디렉션
             }
           } else {
             addTypingMessage("응답을 받지 못했습니다. 다시 시도해주세요.");
