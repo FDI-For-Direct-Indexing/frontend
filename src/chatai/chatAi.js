@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./chatAi.css";
-import fdiImage from "./fdi.jpg"; // FDI 이미지 파일 import
-import Email_Send from "./Email_Send.jpg"; // 이메일 전송 아이콘 이미지 파일 import
-import profileImage from "../assets/image/chat-symbol.png"; // 새로 만든 귀여운 프로필 이미지 파일 import
+import fdiImage from "./fdi.jpg";
+import Email_Send from "./Email_Send.jpg";
+import profileImage from "../assets/image/chat-symbol.png";
 import { useLocation } from "react-router-dom";
+import { LLM_API } from "../common/api";
 
 export default function Chatai() {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const initialMessages = [
 
     `안녕하세요 ${state.name}님, AI 다이렉트 인덱싱 서비스 FDI입니다. 당신에게 맞는 종목을 찾을 수 있게 도와드릴게요!`,
@@ -66,7 +67,7 @@ export default function Chatai() {
       };
 
       try {
-        const response = await fetch("http://localhost:8000/ai/execute-completion", {
+        const response = await fetch(LLM_API.LOCAL + "/ai/execute-completion", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -76,13 +77,13 @@ export default function Chatai() {
 
         if (response.ok) {
           const data = await response.json();
-          setLoading(false); // 응답이 온 순간 로딩 상태를 false로 설정
+          setLoading(false);
           if (data.content) {
             if (turn < 5) {
               addTypingMessage(data.content);
             } else {
               console.log("Final Response (before save):", data.content); // 응답 확인
-              await fetch("http://localhost:8000/ai/save-final-response", {
+              await fetch(LLM_API.LOCAL + "/ai/save-final-response", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import ko from "date-fns/locale/ko"; // import Korean locale
+import ko from "date-fns/locale/ko";
 import addMonths from "date-fns/addMonths";
 import subMonths from "date-fns/subMonths";
 import "../styles/modal.css";
 
-registerLocale("ko", ko); // register the locale
+registerLocale("ko", ko);
 
 export default function BacktestModal({
   showModal,
@@ -72,7 +72,7 @@ export default function BacktestModal({
             className="date-select"
             selected={startDate}
             onChange={handleStartDateChange}
-            maxDate={subMonths(new Date(), 3)} // 현재 날짜 기준으로 3달 전 이하로 선택 가능
+            maxDate={subMonths(new Date(), 3)}
             dateFormat="yyyy년 MM월 dd일"
             locale="ko"
           />
@@ -83,8 +83,8 @@ export default function BacktestModal({
             className="date-select"
             selected={endDate}
             onChange={(date) => setEndDate(date)}
-            minDate={addMonths(startDate, 3)} // 시작 날짜 기준으로 3달 이후부터 선택 가능
-            maxDate={new Date()} // 현재 날짜까지 선택 가능
+            minDate={addMonths(startDate, 3)}
+            maxDate={new Date()}
             dateFormat="yyyy년 MM월 dd일"
             locale="ko"
           />

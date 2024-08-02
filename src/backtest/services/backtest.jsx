@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_URL } from "../../common/api";
 
 export default async function PerformBacktest(selectedItems, startDate, endDate) {
   try {
@@ -13,7 +14,7 @@ export default async function PerformBacktest(selectedItems, startDate, endDate)
         end_date: endDate.toISOString().slice(0, 10).replace(/-/g, ""),
       },
     };
-    const response = await axios.post("http://localhost:4000/api/backtest", requestData);
+    const response = await axios.post(API_URL.LOCAL + "/api/backtest", requestData);
     return response.data;
   } catch (error) {
     console.error("Error performing backtest", error);

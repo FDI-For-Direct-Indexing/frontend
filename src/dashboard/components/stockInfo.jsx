@@ -86,7 +86,6 @@ export default function StockInfo({ code, userId }) {
     <div className="stock-info">
       <div>
         <p className="stock-name">{name}</p>
-        {/* isCartFull 상태와 setIsCartFull 함수를 ClickCart 컴포넌트에 전달 */}
         <ClickCart
           code={code}
           name={name}

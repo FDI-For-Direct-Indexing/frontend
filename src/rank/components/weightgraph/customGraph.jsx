@@ -58,13 +58,6 @@ function CustomGraph({ title }) {
     updatedSections[updatedSections.length - 1].percentage += difference;
 
     setSections(updatedSections);
-    // setSliderValues(updatedSections.map((section) => section.percentage));
-
-    // // 추가된 부분: sliderValues 상태 확인
-    // console.log(
-    //   "Updated Slider Values: ",
-    //   updatedSections.map((section) => section.percentage)
-    // );
   };
 
   const startDrag = (index) => {

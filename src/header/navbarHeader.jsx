@@ -52,7 +52,7 @@ function NavbarHeader({ userId }) {
         <Navbar.Collapse id="navbarScroll" className="ms-auto">
           <Form className="d-flex search-form" onSubmit={searchKeyword}>
             <div ref={wrapperRef} className="search-form-group">
-              <img src={SEARCH} alt="Search" style={{ paddingLeft: "5px" }} />
+              <img src={SEARCH} alt="Search" style={{ paddingLeft: '5px' }} />
               <Form.Control
                 type="search"
                 placeholder="종목명으로 검색하세요."

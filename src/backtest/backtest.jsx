@@ -92,7 +92,7 @@ export default function Backtest() {
         formatter: function (value) {
           const date = new Date(value);
           if (!isNaN(date.getTime())) {
-            return date.toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 변환
+            return date.toISOString().slice(0, 10);
           }
           return value;
         },
