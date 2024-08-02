@@ -7,6 +7,7 @@ import Cart from "./cart/cart";
 import ProgressPage from "./common/ui/progresspage";
 import Backtest from "./backtest/backtest";
 import Start from "./chatai/start";
+import MaintenancePage from "./maintenance"; // 점검 페이지 추가
 
 const router = createBrowserRouter([
   { path: "/", element: <Start />, index: true },
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   { path: "/cart", element: <Navigate to="/" replace />, index: true },
   { path: "/loading", element: <ProgressPage />, index: true },
   { path: "/backtest/:userId", element: <Backtest />, index: true },
+  { path: "/maintenance", element: <MaintenancePage />, index: true }, // 점검 페이지 경로 추가
 ]);
 
 export default router;
