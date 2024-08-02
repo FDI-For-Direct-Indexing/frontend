@@ -25,7 +25,7 @@ const MaintenanceMessage = ({ children }) => {
         }
 
         // Check for 15:20-15:35
-        if (hours === 20 && minutes >= 0 && minutes <= 1) {
+        if (hours === 15 && minutes >= 20 && minutes <= 35) {
           setIsMaintenanceTime(true);
           setMessage(
             "평일 15시 20분 ~ 15시 35분까지 서비스 점검 시간입니다. <br/>장 마감에 따라 종가를 업데이트하고 있으니 조금만 기다려주세요!",
