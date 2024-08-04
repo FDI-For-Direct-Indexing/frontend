@@ -27,7 +27,8 @@ jobs:
         echo "REACT_APP_SECRET_KEY=${{ secrets.REACT_APP_PYTHON_API_URL }}" >> .env
 
     - name: Build project
-      run: npm run build
+      run: |
+        CI=false npm run build
 
     - name: Copy files to EC2
       env:
