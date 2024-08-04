@@ -120,7 +120,7 @@
 .loading {
   display: flex;
   justify-content: flex-start; /* 스팬 요소들이 왼쪽 정렬되도록 설정 */
-  width: 60px;
+  width: 50px; /* 요소의 너비를 줄여서 스팬 요소들이 안쪽에 오도록 설정 */
   position: relative;
   height: 8px; /* 스팬 요소와 동일한 높이로 설정 */
 }
@@ -133,19 +133,18 @@
   position: absolute;
   animation: loading 0.6s infinite alternate;
 }
-
 .loading span:nth-child(1) {
-  left: -45px; /* 첫 번째 span 요소를 왼쪽으로 20px 이동 */
+  left: -30px; /* 첫 번째 span 요소를 왼쪽으로 이동 */
   animation-delay: 0s;
 }
 
 .loading span:nth-child(2) {
-  left: -25px; /* 두 번째 span 요소를 왼쪽으로 20px 이동 */
+  left: -16px; /* 두 번째 span 요소를 왼쪽으로 이동 */
   animation-delay: 0.15s;
 }
 
 .loading span:nth-child(3) {
-  left: -5px; /* 세 번째 span 요소를 왼쪽으로 20px 이동 */
+  left: -2px; /* 세 번째 span 요소를 왼쪽으로 이동 */
   animation-delay: 0.3s;
 }
 
