@@ -30,6 +30,16 @@ jobs:
       run: |
         CI=false npm run build
 
+    - name: Create target directory on EC2
+      env:
+        EC2_HOST: ${{ secrets.REMOTE_IP }}
+        EC2_USER: ${{ secrets.REMOTE_USER }}
+        EC2_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
+      run: |
+        echo "${EC2_KEY}" > key.pem
+        chmod 600 key.pem
+        ssh -o StrictHostKeyChecking=no -i key.pem ${EC2_USER}@${EC2_HOST} '[ -d /home/ubuntu/build ] && rm -rf /home/ubuntu/build || echo "No directory to delete"'
+
     - name: Copy files to EC2
       env:
         EC2_HOST: ${{ secrets.REMOTE_IP }}
@@ -38,6 +48,5 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y openssh-client
-        echo "${EC2_KEY}" > key.pem
-        chmod 600 key.pem
-        scp -o StrictHostKeyChecking=no -i key.pem -r ./build/* ${EC2_USER}@${EC2_HOST}:/home/ubuntu/test
+        scp -o StrictHostKeyChecking=no -i key.pem -r ./build ${EC2_USER}@${EC2_HOST}:/home/ubuntu/
+
