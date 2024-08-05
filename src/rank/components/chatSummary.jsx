@@ -14,20 +14,18 @@ export default function ChatSummary({ userId, name }) {
     const fetchData = async () => {
       const values = await getIndicatorsResult();
       const valuesToRates = [];
-      valuesToRates.push(values.안전성);
       valuesToRates.push(values.수익성);
+      valuesToRates.push(values.안전성);
       valuesToRates.push(values.성장성);
       valuesToRates.push(values.활동성);
       valuesToRates.push(values.언급량);
       valuesToRates.push(values.감성지수);
-      console.log(valuesToRates, "벨류");
       setSliderValues(valuesToRates);
       console.log(sliderValues);
       const maxIdx = valuesToRates.reduce((maxIndex, currentValue, currentIndex, array) => {
         return currentValue > array[maxIndex] ? currentIndex : maxIndex;
       }, 0);
       setMaxPreference(rates[maxIdx]);
-      console.log(maxPreference, "최대");
     };
     fetchData();
   }, []);
