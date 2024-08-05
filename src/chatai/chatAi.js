@@ -13,7 +13,7 @@ export default function Chatai() {
   const { state } = useLocation();
   const initialMessages = [
     `안녕하세요 ${state.name}님, AI 다이렉트 인덱싱 서비스 FDI입니다. 당신에게 맞는 종목을 찾을 수 있게 도와드릴게요!`,
-    "주식투자를 할 때 어려움 점이 있나요?",
+    "주식투자를 할 때 어떤 어려운 점이 있나요?",
   ];
   const [messages, setMessages] = useState([
     {
@@ -109,6 +109,7 @@ export default function Chatai() {
               });
               setFinalResponse(data.content); // 최종 응답 설정
               setTimeout(() => {
+                console.log("rank ", userId);
                 navigate(`/rank/${userId}`); // 리디렉션 및 상태 전달
               }, 4000); // 1초 후에 리디렉션
             }

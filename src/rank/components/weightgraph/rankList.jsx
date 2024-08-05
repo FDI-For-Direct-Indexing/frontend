@@ -9,27 +9,49 @@ import { INDICATORS, CLUSTER } from "../../../constants/color";
 import { API_URL } from '../../../common/api';
 import SectionChip from "../../../common/ui/sectionChip";
 import ClickCart from "../../../dashboard/components/clickCart";
+import { getIndicatorsResult } from "../../services/indicators";
 
 const RankList = ({ userId, setGroupIdx }) => {
-  const { sliderValues, setStockList, colorList } = useContext(WeightContext);
+  const {
+    sliderValues, setSliderValues,
+    setStockList,
+    colorList,
+    data, setData,
+    setHighest } = useContext(WeightContext);
   const svgRef = useRef();
-  const [data, setData] = useState([]);
+  const rates = ["수익성", "안정성", "활동성", "성장성", "언급량", "감정지수"];
   const navigate = useNavigate();
   const [sortedData, setSortedData] = useState([]);
   const graphStart = 380;
 
   useEffect(() => {
 
-    const fetchCompanies = async () => {
+    const fetchData = async () => {
+      const values = await getIndicatorsResult();
+      const valuesToRates = [];
+      valuesToRates.push(values.수익성);
+      valuesToRates.push(values.안전성);
+      valuesToRates.push(values.성장성);
+      valuesToRates.push(values.활동성);
+      valuesToRates.push(values.언급량);
+      valuesToRates.push(values.감성지수);
+      setSliderValues(valuesToRates);
+      const maxIdx = valuesToRates.reduce((maxIndex, currentValue, currentIndex, array) => {
+        return currentValue > array[maxIndex] ? currentIndex : maxIndex;
+      }, 0);
+      setHighest(rates[maxIdx]);
+      return valuesToRates;
+    };
+
+    const fetchCompanies = async (slider) => {
       try {
         const response = await axios.get(
           `${API_URL.LOCAL}/api/corporates/list`
         );
         const weightData = response.data;
         setData(weightData);
-        const sortedData = rankSort(sliderValues, weightData);
-        setData(sortedData);
-        setSortedData(sortedData); // sortedData 설정
+
+        const sortedData = rankSort(slider, weightData);
 
         const svg = d3
           .select(svgRef.current)
@@ -40,16 +62,22 @@ const RankList = ({ userId, setGroupIdx }) => {
         if (data != undefined && data.length > 0) {
           matchColor().then((d) => {
             setData(d);
-            update(data, svg, ...sliderValues, "group1");
+            update(data, svg, ...slider, "group1");
           });
         }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
+    async function datas() {
+      const slider = await fetchData();
+      await fetchCompanies(slider);
+    };
+    datas();
 
-    fetchCompanies();
   }, []);
+
+
 
   useEffect(() => {
     if (data != undefined && data.length > 0) {
