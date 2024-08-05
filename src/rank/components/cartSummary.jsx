@@ -36,7 +36,7 @@ export default function CartSummary({ userId }) {
       </div>
       <div style={{ height: 'auto' }}>
         {
-          recentCart.length !== 0
+          (recentCart !== undefined || recentCart.length !== 0)
             ? recentCart.map((item, index) => (
               <div key={index} style={{ display: 'flex', flexDirection: 'row', textAlign: 'center', justifyContent: 'space-between', padding: '10px 10px 0px 10px' }}>
                 <p style={{ fontSize: '16px', margin: '0px' }}>{item.name}</p>

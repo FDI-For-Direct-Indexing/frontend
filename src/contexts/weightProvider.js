@@ -8,6 +8,9 @@ export const WeightProvider = ({ children }) => {
   const [stockList, setStockList] = useState([]);
   const [colorList, setColorList] = useState([]);
 
+  const [highest, setHighest] = useState("");
+  const [data, setData] = useState([]);
+
   return (
     <WeightContext.Provider
       value={{
@@ -17,6 +20,10 @@ export const WeightProvider = ({ children }) => {
         setStockList,
         colorList,
         setColorList,
+        highest,
+        setHighest,
+        data,
+        setData
       }}
     >
       {children}

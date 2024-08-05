@@ -109,6 +109,7 @@ export default function Chatai() {
               });
               setFinalResponse(data.content); // 최종 응답 설정
               setTimeout(() => {
+                console.log("rank ", userId);
                 navigate(`/rank/${userId}`); // 리디렉션 및 상태 전달
               }, 4000); // 1초 후에 리디렉션
             }

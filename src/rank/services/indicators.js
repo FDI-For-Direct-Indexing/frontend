@@ -28,8 +28,8 @@ function processValues(inputString) {
     const result = {};
 
     pairs.forEach(pair => {
-      const [key, value] = pair.split(' : ');
-      result[key] = parseFloat(value);
+      const [key, value] = pair.split(':');
+      result[key.trim()] = parseFloat(value.trim());
     });
 
     return result;
@@ -37,7 +37,6 @@ function processValues(inputString) {
 
   // 문자열을 객체로 변환
   const values = parseStringToObject(inputString);
-
   // console.log("객체  변함 ", values);
   // 모든 기본 키에 대해 값이 존재하지 않으면 0으로 설정
   const completeValues = keys.reduce((acc, key) => {
